@@ -1,0 +1,63 @@
+---
+// Liste chronologique des fiches, avec un filtre par type (simples liens : aucun JavaScript).
+import Base from '../layouts/Base.astro';
+import {
+  TYPES, type Fiche, chemin, dateCourte, estPubliee, fichesVisibles, jour, libelleType, moisAnnee,
+} from '../lib/catalogue';
+import { typoFr } from '../lib/typo.mjs';
+
+interface Props { type?: string }
+const { type } = Astro.props;
+
+const toutes = await fichesVisibles();
+const fiches = type ? toutes.filter((f) => f.data.type === type) : toutes;
+const typesPresents = TYPES.filter((t) => toutes.some((f) => f.data.type === t.id));
+
+// Regroupement par mois, dans l'ordre chronologique inverse.
+const mois = new Map<string, Fiche[]>();
+for (const fiche of fiches) {
+  const cle = jour(fiche).slice(0, 7);
+  mois.set(cle, [...(mois.get(cle) ?? []), fiche]);
+}
+const titre = type ? `Archives : ${libelleType(type, true).toLowerCase()}` : 'Archives';
+const dev = import.meta.env.DEV;
+---
+<Base titre={titre} description="Toutes les fiches publiées sur Curiosa, de la plus récente à la plus ancienne." page="archives">
+  <div class="colonne">
+    <h1 class="page-titre">{titre}</h1>
+    <p class="page-intro">Toutes les fiches publiées, de la plus récente à la plus ancienne.</p>
+
+    <nav class="filtres" aria-label="Filtrer par type">
+      <ul>
+        <li><a href={chemin('archives/')} aria-current={!type ? 'page' : undefined}>Tout <span class="compte">{toutes.length}</span></a></li>
+        {typesPresents.map((t) => (
+          <li>
+            <a href={chemin(`archives/${t.id}/`)} aria-current={type === t.id ? 'page' : undefined}>
+              {t.pluriel} <span class="compte">{toutes.filter((f) => f.data.type === t.id).length}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+
+    {fiches.length === 0 && <p class="vide">Aucune fiche de ce type pour l’instant.</p>}
+
+    {[...mois.values()].map((liste) => (
+      <section class="mois">
+        <h2>{moisAnnee(liste[0])}</h2>
+        <ol class="liste-fiches">
+          {liste.map((fiche) => (
+            <li data-type={fiche.data.type}>
+              <time datetime={jour(fiche)}>{dateCourte(fiche)}</time>
+              <div>
+                <span class="type">{libelleType(fiche.data.type)}{dev && !estPubliee(fiche) && ' (programmée)'}</span>
+                <a class="titre" href={chemin(`oeuvre/${fiche.id}/`)}>{typoFr(fiche.data.titre)}</a>
+                {fiche.data.createur && <span class="createur">{typoFr(fiche.data.createur)}</span>}
+              </div>
+            </li>
+          ))}
+        </ol>
+      </section>
+    ))}
+  </div>
+</Base>

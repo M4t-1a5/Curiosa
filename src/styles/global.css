@@ -1,0 +1,487 @@
+/* Curiosa : feuille de style unique.
+   Principe : une colonne de lecture, beaucoup d'air, et une seule couleur forte par page :
+   la teinte du type de l'œuvre (livre, tableau…), utilisée pour la question à garder en tête. */
+
+/* ---------- Couleurs ---------- */
+
+:root {
+  color-scheme: light dark;
+
+  --fond: #f4f6f3;
+  --fond-2: #e8ece7;
+  --encre: #1c2420;
+  --encre-2: #4c5852;
+  --filet: #c9d1cb;
+  --sur-teinte: #fbfcfa;
+
+  /* Une teinte par type d'œuvre (texte sur fond clair, contraste ≥ 4,5:1) */
+  --t-livre: #2d4a86;
+  --t-tableau: #a12c3a;
+  --t-papier: #1f6a5a;
+  --t-podcast: #6e3f96;
+  --t-auteur: #6d5418;
+  --t-idee: #865100;
+  --t-musique: #135f86;
+  --t-film: #3f4250;
+
+  --teinte: var(--encre);
+  --teinte-fond: var(--encre);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --fond: #151a18;
+    --fond-2: #1e2522;
+    --encre: #e4e9e5;
+    --encre-2: #a4afa8;
+    --filet: #34403a;
+    --sur-teinte: #f3f5f2;
+
+    --t-livre: #a3b8ec;
+    --t-tableau: #f0a0a8;
+    --t-papier: #80cdb8;
+    --t-podcast: #cba9ec;
+    --t-auteur: #d8bf82;
+    --t-idee: #e9b862;
+    --t-musique: #8cc7e8;
+    --t-film: #bcbfcd;
+  }
+}
+
+[data-type='livre'] { --teinte: var(--t-livre); --teinte-fond: #2d4a86; }
+[data-type='tableau'] { --teinte: var(--t-tableau); --teinte-fond: #a12c3a; }
+[data-type='papier'] { --teinte: var(--t-papier); --teinte-fond: #1f6a5a; }
+[data-type='podcast'] { --teinte: var(--t-podcast); --teinte-fond: #6e3f96; }
+[data-type='auteur'] { --teinte: var(--t-auteur); --teinte-fond: #6d5418; }
+[data-type='idee'] { --teinte: var(--t-idee); --teinte-fond: #865100; }
+[data-type='musique'] { --teinte: var(--t-musique); --teinte-fond: #135f86; }
+[data-type='film'] { --teinte: var(--t-film); --teinte-fond: #3f4250; }
+
+@media (prefers-color-scheme: dark) {
+  [data-type='livre'] { --teinte-fond: #263c6b; }
+  [data-type='tableau'] { --teinte-fond: #6e1e28; }
+  [data-type='papier'] { --teinte-fond: #174a3f; }
+  [data-type='podcast'] { --teinte-fond: #4b2b67; }
+  [data-type='auteur'] { --teinte-fond: #4a3a12; }
+  [data-type='idee'] { --teinte-fond: #5c3a05; }
+  [data-type='musique'] { --teinte-fond: #0f445f; }
+  [data-type='film'] { --teinte-fond: #2e3039; }
+}
+
+/* ---------- Typographie ---------- */
+
+:root {
+  --serif: 'Newsreader Variable', 'Iowan Old Style', Georgia, serif;
+  --sans: 'Instrument Sans Variable', system-ui, sans-serif;
+  --mesure: 38rem;
+  --large: 52rem;
+  --gouttiere: 1.25rem;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 106.25%; /* 17 px */
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+@media (min-width: 48rem) {
+  html { font-size: 112.5%; } /* 18 px */
+  :root { --gouttiere: 2rem; }
+}
+
+body {
+  margin: 0;
+  background: var(--fond);
+  color: var(--encre);
+  font-family: var(--sans);
+  font-weight: 400;
+  line-height: 1.6;
+  font-kerning: normal;
+  font-variant-numeric: oldstyle-nums proportional-nums;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+  font-family: var(--serif);
+  font-optical-sizing: auto;
+  font-weight: 500;
+  line-height: 1.15;
+  text-wrap: balance;
+  margin: 0;
+}
+
+p, li, dd {
+  text-wrap: pretty;
+  hyphens: auto;
+}
+
+p { margin: 0 0 1em; }
+
+a {
+  color: inherit;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+  text-decoration-color: color-mix(in srgb, currentColor 45%, transparent);
+}
+
+a:hover { text-decoration-color: currentColor; }
+
+:focus-visible {
+  outline: 3px solid var(--teinte);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ---------- Gabarit ---------- */
+
+.lien-evitement {
+  position: absolute;
+  left: var(--gouttiere);
+  top: -10rem;
+  padding: 0.5rem 0.75rem;
+  background: var(--encre);
+  color: var(--fond);
+  z-index: 10;
+}
+
+.lien-evitement:focus { top: 0.75rem; }
+
+.colonne {
+  width: 100%;
+  max-width: calc(var(--mesure) + 2 * var(--gouttiere));
+  margin-inline: auto;
+  padding-inline: var(--gouttiere);
+}
+
+.entete-site {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-block: 1.25rem;
+}
+
+.marque {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.45rem;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.navigation ul {
+  display: flex;
+  gap: 1.25rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navigation a { text-decoration: none; color: var(--encre-2); }
+.navigation a:hover, .navigation a[aria-current='page'] { color: var(--encre); text-decoration: underline; }
+
+main { padding-bottom: 4rem; }
+
+.pied-site {
+  border-top: 1px solid var(--filet);
+  padding-block: 1.5rem 2.5rem;
+  color: var(--encre-2);
+  font-size: 0.875rem;
+}
+
+.pied-site p { margin: 0 0 0.4em; }
+
+/* ---------- Fiche ---------- */
+
+.fiche { padding-top: 2.5rem; }
+
+.fiche-date {
+  color: var(--encre-2);
+  font-size: 0.9rem;
+  margin: 0 0 2.75rem;
+}
+
+.fiche-type {
+  color: var(--teinte);
+  font-weight: 600;
+  margin: 0 0 0.6rem;
+}
+
+.fiche-titre {
+  font-size: clamp(2.4rem, 8vw, 4rem);
+  line-height: 1.02;
+  letter-spacing: -0.015em;
+}
+
+.fiche-titre-original {
+  font-family: var(--serif);
+  font-style: italic;
+  color: var(--encre-2);
+  font-size: 1.15rem;
+  margin: 0.75rem 0 0;
+}
+
+/* Le cartel : comme l'étiquette posée à côté d'une œuvre dans un musée. */
+.cartel {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.3rem 1.25rem;
+  margin: 1.75rem 0 0;
+  font-size: 0.95rem;
+}
+
+.cartel dt { color: var(--encre-2); }
+.cartel dd { margin: 0; }
+
+.accroche {
+  font-family: var(--serif);
+  font-size: 1.4rem;
+  line-height: 1.4;
+  margin: 2.25rem 0 0;
+}
+
+.fiche-image {
+  margin: 2.5rem auto 0;
+  max-width: var(--large);
+}
+
+.fiche-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: var(--fond-2);
+}
+
+.fiche-image figcaption {
+  font-size: 0.85rem;
+  color: var(--encre-2);
+  margin-top: 0.6rem;
+}
+
+.fiche-texte { margin-top: 3rem; }
+
+.fiche-texte h2,
+.bloc-titre {
+  font-size: 1.45rem;
+  font-weight: 600;
+  margin: 2.75rem 0 0.8rem;
+}
+
+.fiche-texte h2:first-child { margin-top: 0; }
+
+.fiche-texte blockquote {
+  margin: 1.5rem 0;
+  padding-left: 1.1rem;
+  border-left: 3px solid var(--teinte);
+  font-family: var(--serif);
+  font-size: 1.15rem;
+}
+
+.fiche-texte ul, .fiche-texte ol { padding-left: 1.2rem; }
+.fiche-texte li { margin-bottom: 0.35em; }
+
+/* La question : l'unique aplat de couleur de la page. */
+.question {
+  margin: 3.5rem 0 0;
+  padding: 2rem var(--gouttiere) 2.25rem;
+  background: var(--teinte-fond);
+  color: var(--sur-teinte);
+}
+
+.question h2 {
+  font-family: var(--sans);
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin: 0 0 0.9rem;
+}
+
+.question p {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(1.5rem, 4.6vw, 2rem);
+  line-height: 1.3;
+  margin: 0;
+  hyphens: manual;
+}
+
+@media (min-width: 48rem) {
+  .question { margin-inline: calc(-1 * var(--gouttiere)); }
+}
+
+.plus-loin ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.plus-loin li {
+  padding: 1rem 0;
+  border-top: 1px solid var(--filet);
+}
+
+.plus-loin li:last-child { border-bottom: 1px solid var(--filet); }
+
+.plus-loin .type-lie {
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.plus-loin .titre-lie {
+  font-family: var(--serif);
+  font-size: 1.3rem;
+  line-height: 1.25;
+  margin: 0.15rem 0 0.25rem;
+}
+
+.plus-loin .createur-lie { color: var(--encre-2); }
+.plus-loin .pourquoi { margin: 0.35rem 0 0; }
+
+.ressource { margin-top: 1rem; }
+
+.ressource-lien {
+  display: inline-block;
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  line-height: 1.25;
+  font-weight: 500;
+  color: var(--teinte);
+  text-decoration-thickness: 2px;
+  text-decoration-color: currentColor;
+}
+
+.ressource p { margin: 0.6rem 0 0; color: var(--encre-2); font-size: 0.95rem; }
+
+.non-verifie {
+  display: inline-block;
+  margin-left: 0.4rem;
+  padding: 0 0.35rem;
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: #ffd54a;
+  color: #1c2420;
+  vertical-align: middle;
+}
+
+.sources-fiche {
+  margin-top: 2.5rem;
+  font-size: 0.85rem;
+  color: var(--encre-2);
+}
+
+.voisines {
+  display: grid;
+  gap: 1rem;
+  margin-top: 3rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--filet);
+  font-size: 0.95rem;
+}
+
+@media (min-width: 40rem) {
+  .voisines { grid-template-columns: 1fr 1fr; }
+  .voisines .suivante { text-align: right; }
+}
+
+.voisines span { display: block; color: var(--encre-2); font-size: 0.85rem; }
+.voisines a { font-family: var(--serif); font-size: 1.1rem; }
+
+.programmee {
+  border: 2px dashed var(--teinte);
+  padding: 0.5rem 0.75rem;
+  margin: 0 0 1.5rem;
+  font-size: 0.9rem;
+}
+
+/* ---------- Pages de liste et de texte ---------- */
+
+.page-titre {
+  font-size: clamp(2.2rem, 7vw, 3.25rem);
+  margin: 2.5rem 0 0.75rem;
+}
+
+.page-intro { color: var(--encre-2); margin-bottom: 2rem; }
+
+.filtres ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.1rem;
+  list-style: none;
+  margin: 0 0 2.5rem;
+  padding: 0;
+}
+
+.filtres a {
+  text-decoration: none;
+  color: var(--encre-2);
+  padding-block: 0.25rem;
+  display: inline-block;
+}
+
+.filtres a:hover { color: var(--encre); text-decoration: underline; }
+
+.filtres a[aria-current='page'] {
+  color: var(--encre);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+}
+
+.filtres .compte { color: var(--encre-2); font-weight: 400; font-variant-numeric: lining-nums; }
+
+.mois h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 2.25rem 0 0.5rem;
+}
+
+.mois h2::first-letter { text-transform: uppercase; }
+
+.liste-fiches {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.liste-fiches li {
+  display: grid;
+  grid-template-columns: 4.25rem 1fr;
+  gap: 0 1rem;
+  padding: 0.9rem 0;
+  border-top: 1px solid var(--filet);
+}
+
+.liste-fiches time {
+  color: var(--encre-2);
+  font-size: 0.9rem;
+  padding-top: 0.2rem;
+  font-variant-numeric: lining-nums tabular-nums;
+}
+
+.liste-fiches .type { color: var(--teinte); font-size: 0.85rem; font-weight: 600; display: block; }
+.liste-fiches .titre { font-family: var(--serif); font-size: 1.25rem; line-height: 1.25; }
+.liste-fiches .createur { color: var(--encre-2); font-size: 0.95rem; display: block; }
+
+.vide { color: var(--encre-2); }
+
+.texte h2 { font-size: 1.45rem; font-weight: 600; margin: 2.5rem 0 0.75rem; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@media print {
+  .entete-site, .pied-site, .voisines, .lien-evitement { display: none; }
+  .question { background: none; color: inherit; border: 2px solid currentColor; }
+}

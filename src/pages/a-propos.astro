@@ -1,0 +1,22 @@
+---
+import Base from '../layouts/Base.astro';
+import sources from '../data/sources.json';
+const noms = [...new Set(Object.values(sources.domaines))];
+---
+<Base titre="À propos" description="Pourquoi Curiosa existe et d’où viennent ses liens." page="a-propos">
+  <div class="colonne texte">
+    <h1 class="page-titre">À propos</h1>
+    <p class="page-intro">Curiosa présente une seule œuvre par jour : un livre, un tableau, un article de recherche, un podcast, une personne, une idée, une musique ou un film.</p>
+
+    <h2>Une fiche, cinq minutes</h2>
+    <p>Chaque fiche explique en quoi consiste l’œuvre, ce qu’elle apporte aujourd’hui, ce qu’elle a changé, par où commencer, et propose une question à garder en tête. Elle se termine par des œuvres liées, souvent dans un autre domaine.</p>
+
+    <h2>Des liens gratuits, légaux et vérifiés</h2>
+    <p>Chaque lien mène à une ressource gratuite et légale. Pour une œuvre encore protégée par le droit d’auteur, Curiosa renvoie vers un extrait, une conférence ou une présentation officielle, jamais vers une copie pirate.</p>
+    <p>Tous les liens sont vérifiés automatiquement avant chaque mise en ligne, puis chaque jour. Un lien qui ne répond plus disparaît de la fiche ; une fiche dont la ressource principale ne répond plus est retirée jusqu’à sa correction. Une information qui ne peut pas être vérifiée n’apparaît pas.</p>
+    <p>Sites autorisés : {noms.join(', ')}.</p>
+
+    <h2>Rien d’autre</h2>
+    <p>Pas de publicité, pas de compte, pas de mesure d’audience, pas de fil infini. Pour recevoir chaque nouvelle fiche, un <a href={`${import.meta.env.BASE_URL.replace(/\/$/, '')}/rss.xml`}>flux RSS</a> suffit.</p>
+  </div>
+</Base>

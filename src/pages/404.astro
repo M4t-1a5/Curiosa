@@ -1,0 +1,11 @@
+---
+import Base from '../layouts/Base.astro';
+import { chemin } from '../lib/catalogue';
+---
+<Base titre="Page introuvable" description="Cette page n’existe pas." indexer={false}>
+  <div class="colonne texte">
+    <h1 class="page-titre">Page introuvable</h1>
+    <p class="page-intro">Cette adresse ne correspond à aucune fiche publiée. Une fiche programmée n’est visible qu’à partir de sa date.</p>
+    <p><a href={chemin()}>Voir l’œuvre du jour</a> ou <a href={chemin('archives/')}>parcourir les archives</a>.</p>
+  </div>
+</Base>

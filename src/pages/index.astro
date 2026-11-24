@@ -1,0 +1,18 @@
+---
+// Page d'accueil : l'œuvre du jour (la fiche publiée la plus récente).
+import Base from '../layouts/Base.astro';
+import Fiche from '../components/Fiche.astro';
+import { chemin, fichesPubliees } from '../lib/catalogue';
+
+const publiees = await fichesPubliees();
+const fiche = publiees[0];
+---
+{fiche ? (
+  <Base titre={fiche.data.titre} description={fiche.data.accroche} canonique={chemin(`oeuvre/${fiche.id}/`)} page="accueil" type={fiche.data.type}>
+    <Fiche fiche={fiche} accueil precedente={publiees[1]} />
+  </Base>
+) : (
+  <Base titre="Une œuvre par jour" description="Une œuvre par jour pour s’enrichir l’esprit." page="accueil">
+    <div class="colonne"><h1 class="page-titre">Bientôt</h1><p class="page-intro">La première fiche n’est pas encore publiée.</p></div>
+  </Base>
+)}

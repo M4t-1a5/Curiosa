@@ -1,0 +1,49 @@
+[
+  {
+    "id": "livre",
+    "label": "Livre",
+    "pluriel": "Livres",
+    "role": "Écriture"
+  },
+  {
+    "id": "tableau",
+    "label": "Tableau",
+    "pluriel": "Tableaux",
+    "role": "Peinture"
+  },
+  {
+    "id": "papier",
+    "label": "Article de recherche",
+    "pluriel": "Articles de recherche",
+    "role": "Recherche"
+  },
+  {
+    "id": "podcast",
+    "label": "Podcast",
+    "pluriel": "Podcasts",
+    "role": "Production"
+  },
+  {
+    "id": "auteur",
+    "label": "Auteur ou autrice",
+    "pluriel": "Auteurs et autrices"
+  },
+  {
+    "id": "idee",
+    "label": "Idée",
+    "pluriel": "Idées",
+    "role": "Origine"
+  },
+  {
+    "id": "musique",
+    "label": "Musique",
+    "pluriel": "Musique",
+    "role": "Composition"
+  },
+  {
+    "id": "film",
+    "label": "Film",
+    "pluriel": "Films",
+    "role": "Réalisation"
+  }
+]

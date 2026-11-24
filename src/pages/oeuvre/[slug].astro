@@ -1,0 +1,19 @@
+---
+// Une page par fiche, à une adresse stable : /oeuvre/2026-11-24-pensees-pour-moi-meme/
+import Base from '../../layouts/Base.astro';
+import Fiche from '../../components/Fiche.astro';
+import { fichesVisibles } from '../../lib/catalogue';
+
+export async function getStaticPaths() {
+  const fiches = await fichesVisibles(); // de la plus récente à la plus ancienne
+  return fiches.map((fiche, i) => ({
+    params: { slug: fiche.id },
+    props: { fiche, suivante: fiches[i - 1], precedente: fiches[i + 1] },
+  }));
+}
+
+const { fiche, precedente, suivante } = Astro.props;
+---
+<Base titre={fiche.data.titre} description={fiche.data.accroche} type={fiche.data.type}>
+  <Fiche fiche={fiche} precedente={precedente} suivante={suivante} />
+</Base>

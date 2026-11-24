@@ -1,0 +1,119 @@
+---
+// Affiche une fiche complète. Utilisée par la page d'accueil et par /oeuvre/<identifiant>/.
+import { Picture } from 'astro:assets';
+import { render } from 'astro:content';
+import {
+  type Fiche, chemin, dateLongue, estPubliee, libelleType, nomSource, roleCreateur, titreSource,
+} from '../lib/catalogue';
+import { imageDe } from '../lib/images';
+import { lienAffichable, lienVerifie } from '../lib/verification';
+import { typoFr } from '../lib/typo.mjs';
+
+interface Props {
+  fiche: Fiche;
+  accueil?: boolean;
+  precedente?: Fiche;
+  suivante?: Fiche;
+}
+
+const { fiche, accueil = false, precedente, suivante } = Astro.props;
+const d = fiche.data;
+const { Content } = await render(fiche);
+const image = d.image ? imageDe(fiche.id) : undefined;
+const plusLoin = d.plus_loin.filter((lien) => lienAffichable(lien.url));
+const sources = d.sources.filter((url) => lienAffichable(url));
+const dev = import.meta.env.DEV;
+const libelleCreateur = roleCreateur(d.type);
+---
+<article class="colonne fiche" aria-labelledby="titre-fiche">
+  {dev && !estPubliee(fiche) && (
+    <p class="programmee">Aperçu local : cette fiche n’est pas encore publiée (date future ou ressource non vérifiée).</p>
+  )}
+  <p class="fiche-date">
+    {accueil ? <>L’œuvre du {dateLongue(fiche)}</> : <>Publiée le {dateLongue(fiche)}</>}
+  </p>
+
+  <header>
+    <p class="fiche-type">{libelleType(d.type)}</p>
+    <h1 class="fiche-titre" id="titre-fiche">{typoFr(d.titre)}</h1>
+    {d.titre_original && <p class="fiche-titre-original" lang="und">{d.titre_original}</p>}
+    <dl class="cartel">
+      {d.createur && libelleCreateur && (<><dt>{libelleCreateur}</dt><dd>{typoFr(d.createur)}</dd></>)}
+      <dt>{d.type === 'auteur' ? 'Vie' : 'Date'}</dt><dd>{typoFr(d.epoque)}</dd>
+      <dt>Accès</dt><dd><a href="#acceder">{nomSource(d.ressource.url)}, gratuit</a></dd>
+    </dl>
+    <p class="accroche">{typoFr(d.accroche)}</p>
+  </header>
+
+  {image && d.image && (
+    <figure class="fiche-image">
+      <Picture
+        src={image}
+        alt={d.image.alt}
+        widths={[480, 800, 1200, 1600].filter((l) => l <= image.width)}
+        sizes="(min-width: 56rem) 52rem, 100vw"
+        formats={['avif', 'webp']}
+        loading="eager"
+      />
+      <figcaption>{typoFr(d.image.credit)} ({d.image.licence})</figcaption>
+    </figure>
+  )}
+
+  <div class="fiche-texte">
+    <Content />
+  </div>
+
+  <section class="question" aria-labelledby="titre-question">
+    <h2 id="titre-question">Une question à garder en tête</h2>
+    <p>{typoFr(d.question)}</p>
+  </section>
+
+  {plusLoin.length > 0 && (
+    <section class="plus-loin" aria-labelledby="titre-plus-loin">
+      <h2 class="bloc-titre" id="titre-plus-loin">Pour aller plus loin</h2>
+      <ul>
+        {plusLoin.map((lien) => (
+          <li data-type={lien.type}>
+            <p class="type-lie" style="color: var(--teinte)">{libelleType(lien.type)}</p>
+            <p class="titre-lie">
+              <a href={lien.url}>{typoFr(lien.titre)}</a>
+              {dev && !lienVerifie(lien.url) && <span class="non-verifie">lien non vérifié</span>}
+            </p>
+            {lien.createur && <span class="createur-lie">{typoFr(lien.createur)}</span>}
+            <p class="pourquoi">{typoFr(lien.pourquoi)}</p>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )}
+
+  <section class="ressource" id="acceder" aria-labelledby="titre-ressource">
+    <h2 class="bloc-titre" id="titre-ressource">Accéder à la ressource</h2>
+    <a class="ressource-lien" href={d.ressource.url}>{typoFr(d.ressource.libelle)}</a>
+    {dev && !lienVerifie(d.ressource.url) && <span class="non-verifie">lien non vérifié</span>}
+    <p>
+      {d.ressource.note && <>{typoFr(d.ressource.note)} </>}
+      Hébergé par {nomSource(d.ressource.url)}, gratuit et légal.
+    </p>
+  </section>
+
+  {sources.length > 0 && (
+    <p class="sources-fiche">
+      Sources des informations{'\u00A0'}:{' '}
+      {sources.map((url, i) => (
+        <>{i > 0 && ', '}<a href={url}>{titreSource(url)}</a></>
+      ))}.
+    </p>
+  )}
+
+  {(precedente || suivante) && (
+    <nav class="voisines" aria-label="Autres fiches">
+      {precedente ? (
+        <p class="precedente"><span>Fiche précédente</span><a href={chemin(`oeuvre/${precedente.id}/`)}>{typoFr(precedente.data.titre)}</a></p>
+      ) : <p></p>}
+      {suivante && (
+        <p class="suivante"><span>Fiche suivante</span><a href={chemin(`oeuvre/${suivante.id}/`)}>{typoFr(suivante.data.titre)}</a></p>
+      )}
+    </nav>
+  )}
+</article>

@@ -1,0 +1,10 @@
+---
+// Une page d'archives par type : /archives/livre/, /archives/tableau/…
+import Archives from '../../components/Archives.astro';
+import { TYPES } from '../../lib/catalogue';
+
+export function getStaticPaths() {
+  return TYPES.map((t) => ({ params: { type: t.id } }));
+}
+---
+<Archives type={Astro.params.type} />

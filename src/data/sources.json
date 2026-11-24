@@ -1,0 +1,29 @@
+{
+  "_explication": "Liste blanche des sites autorisés. Un lien vers un domaine absent de cette liste fait échouer « npm run verify ». Un domaine couvre aussi ses sous-domaines (« wikisource.org » couvre « fr.wikisource.org »).",
+  "domaines": {
+    "wikisource.org": "Wikisource",
+    "gutenberg.org": "Project Gutenberg",
+    "gallica.bnf.fr": "Gallica (BnF)",
+    "archive.org": "Internet Archive",
+    "artic.edu": "Art Institute of Chicago",
+    "metmuseum.org": "Metropolitan Museum of Art",
+    "commons.wikimedia.org": "Wikimedia Commons",
+    "upload.wikimedia.org": "Wikimedia Commons",
+    "europeana.eu": "Europeana",
+    "arxiv.org": "arXiv",
+    "hal.science": "HAL",
+    "openalex.org": "OpenAlex",
+    "ncbi.nlm.nih.gov": "PubMed Central",
+    "radiofrance.fr": "Radio France",
+    "bbc.co.uk": "BBC",
+    "wikipedia.org": "Wikipédia",
+    "wikidata.org": "Wikidata",
+    "plato.stanford.edu": "Stanford Encyclopedia of Philosophy",
+    "imslp.org": "IMSLP",
+    "musopen.org": "Musopen",
+    "nobelprize.org": "Prix Nobel",
+    "ina.fr": "INA",
+    "philharmoniedeparis.fr": "Philharmonie de Paris",
+    "arte.tv": "Arte"
+  }
+}

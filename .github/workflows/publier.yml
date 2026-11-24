@@ -1,0 +1,74 @@
+# Vérifie les liens, construit le site et le publie sur GitHub Pages.
+# Se lance à chaque envoi sur « main », et chaque nuit pour faire apparaître l'œuvre du jour.
+name: Publier le site
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: '7 23 * * *' # 0 h 07 à Paris en hiver, 1 h 07 en été
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  construire:
+    runs-on: ubuntu-latest
+    outputs:
+      verification: ${{ steps.verification.outcome }}
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+
+      # Un lien qui ne répond pas 200 est masqué sur le site ; une fiche dont la ressource
+      # ne répond pas n'est pas publiée. Le travail est signalé en échec (e-mail de GitHub).
+      - name: Vérifier les liens
+        id: verification
+        continue-on-error: true
+        run: npm run verify -- --ecrire
+
+      - name: Garder les images déjà téléchargées
+        uses: actions/cache@v4
+        with:
+          path: src/assets/oeuvres
+          key: images-${{ hashFiles('src/content/oeuvres/*.md') }}
+          restore-keys: images-
+
+      - name: Construire
+        run: npm run build
+        env:
+          CURIOSA_EXIGER_VERIFICATION: '1'
+
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: dist
+
+  deployer:
+    needs: construire
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploiement.outputs.page_url }}
+    steps:
+      - id: deploiement
+        uses: actions/deploy-pages@v4
+
+  signaler:
+    needs: [construire, deployer]
+    if: needs.construire.outputs.verification == 'failure'
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "::error::Des liens ou des fiches sont à corriger. Le détail est dans le résumé du travail « construire » (étape « Vérifier les liens »). Ils restent masqués sur le site jusqu'à leur correction."
+          exit 1
