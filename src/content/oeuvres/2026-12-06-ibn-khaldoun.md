@@ -19,6 +19,11 @@ plus_loin:
     createur: Arthur Laffer, années 1970
     pourquoi: "Un pont vers l'économie contemporaine. L'idée qu'au-delà d'un certain taux, l'impôt rapporte moins, souvent rapprochée d'une observation d'Ibn Khaldoun sur les dynasties qui alourdissent les taxes."
     url: https://fr.wikipedia.org/wiki/Courbe_de_Laffer
+image:
+  url: "https://commons.wikimedia.org/wiki/Special:FilePath/Handwriting_of_Ibn_Khaldūn,_al-Muqaddima,_MS_Atıf_Efendi_1936,_f._7a.png?width=3840"
+  alt: "Page manuscrite en écriture arabe, à l'encre noire sur un papier ancien, avec un passage encadré et des notes dans la marge."
+  credit: "Page de la Muqaddima de la main d'Ibn Khaldoun, manuscrit Atıf Efendi 1936, bibliothèque Süleymaniye (Istanbul), via Wikimedia Commons"
+  licence: domaine public
 sources:
   - https://fr.wikipedia.org/wiki/Ibn_Khaldoun
   - https://fr.wikisource.org/wiki/Les_Prolégomènes/Préface

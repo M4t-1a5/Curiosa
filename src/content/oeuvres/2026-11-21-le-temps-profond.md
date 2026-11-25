@@ -21,6 +21,11 @@ plus_loin:
     createur: Écosse
     pourquoi: "La falaise où Hutton a montré en 1788 deux séries de roches superposées presque à angle droit : la preuve visible d'un temps gigantesque."
     url: https://fr.wikipedia.org/wiki/Siccar_Point
+image:
+  url: "https://commons.wikimedia.org/wiki/Special:FilePath/Hutton_James_portrait_Raeburn.jpg?width=3840"
+  alt: "Portrait peint de James Hutton âgé, le front dégarni, en habit brun et col blanc, le regard tourné vers la droite."
+  credit: "Henry Raeburn, Scottish National Portrait Gallery, via Wikimedia Commons"
+  licence: domaine public
 sources:
   - https://fr.wikipedia.org/wiki/James_Hutton
   - https://fr.wikipedia.org/wiki/Échelle_des_temps_géologiques

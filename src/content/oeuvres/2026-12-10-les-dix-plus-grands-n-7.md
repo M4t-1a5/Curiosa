@@ -22,8 +22,8 @@ plus_loin:
     pourquoi: "Un pont vers l'histoire des religions : le courant spirituel, très en vogue autour de 1900, qui a nourri sa peinture comme celle de plusieurs pionniers de l'abstraction."
     url: https://fr.wikipedia.org/wiki/Théosophie
 image:
-  url: https://commons.wikimedia.org/wiki/Special:FilePath/Hilma_af_Klint_-_The_Ten_Largest_No._7_-_Adulthood_-_1907.jpg?width=1600
-  alt: "Une grande toile verticale au fond orange, couverte de formes arrondies qui semblent flotter : spirales, rosaces et boucles de couleurs vives, accompagnées de lettres et de petits signes."
+  url: https://commons.wikimedia.org/wiki/Special:FilePath/Hilma_af_Klint_—_The_Ten_Largest_—_Number_7_Adulthood.jpg?width=3840
+  alt: "Une grande toile verticale au fond lilas. Au centre, deux grandes formes jaunes arrondies, posées l'une sur l'autre et marquées des chiffres I, II et III ; autour, des cercles verts, des fleurs rouges, des spirales et des boucles qui semblent flotter, avec des lettres et de petits signes."
   credit: Hilma af Klint, Fondation Hilma af Klint, via Wikimedia Commons
   licence: domaine public
 sources:
@@ -39,7 +39,7 @@ Hilma af Klint, née en 1862 et morte en 1944, est une peintre suédoise formée
 
 ## Ce que ça apporte
 
-Une expérience physique de la couleur. Même en reproduction, la toile frappe par son énergie : un fond orange lumineux, des formes qui semblent pousser et tourner comme des cellules ou des pétales. On peut la regarder sans rien savoir de ses intentions et ressentir une impression de croissance et de vitalité.
+Une expérience physique de la couleur. Même en reproduction, la toile frappe par son énergie : un fond lilas lumineux, de grandes formes jaunes qui semblent pousser et tourner comme des cellules ou des pétales. On peut la regarder sans rien savoir de ses intentions et ressentir une impression de croissance et de vitalité.
 
 L'histoire de la peintre apporte aussi une leçon sur la manière dont s'écrit l'histoire de l'art : qui est montré, qui est oublié, et pourquoi. Hilma af Klint pensait que son temps n'était pas prêt pour ces œuvres.
 

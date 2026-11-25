@@ -27,6 +27,11 @@ plus_loin:
     createur: Ridley Scott, 1982
     pourquoi: "Des êtres artificiels qui demandent des comptes à leur créateur : l'héritage direct de la créature de Mary Shelley."
     url: https://fr.wikipedia.org/wiki/Blade_Runner
+image:
+  url: "https://commons.wikimedia.org/wiki/Special:FilePath/Frontispiece_to_Frankenstein_1831.jpg?width=3840"
+  alt: "Gravure : dans un laboratoire sombre, un jeune homme s'enfuit, horrifié, devant la créature qui s'éveille sur le sol, parmi des ossements et des livres."
+  credit: "Theodor von Holst, frontispice de l'édition de 1831, via Wikimedia Commons"
+  licence: domaine public
 sources:
   - https://fr.wikipedia.org/wiki/Frankenstein_ou_le_Prométhée_moderne
   - https://fr.wikipedia.org/wiki/Mary_Shelley

@@ -1,10 +1,8 @@
 ---
-// Liste chronologique des fiches, avec un filtre par type (simples liens : aucun JavaScript).
+// Toutes les fiches, en galerie, mois par mois, avec un filtre par type (simples liens : aucun JavaScript).
 import Base from '../layouts/Base.astro';
-import {
-  TYPES, type Fiche, chemin, dateCourte, estPubliee, fichesVisibles, jour, libelleType, moisAnnee,
-} from '../lib/catalogue';
-import { typoFr } from '../lib/typo.mjs';
+import Vignette from './Vignette.astro';
+import { TYPES, type Fiche, chemin, fichesVisibles, jour, libelleType, moisAnnee } from '../lib/catalogue';
 
 interface Props { type?: string }
 const { type } = Astro.props;
@@ -19,18 +17,11 @@ for (const fiche of fiches) {
   const cle = jour(fiche).slice(0, 7);
   mois.set(cle, [...(mois.get(cle) ?? []), fiche]);
 }
-// Dans la liste, un créateur collectif est abrégé : « Ashish Vaswani et coll. »
-const abreger = (createur: string) => {
-  const noms = createur.split(/, | et /);
-  return createur.length > 60 && noms.length > 2 ? `${noms[0]} et coll.` : createur;
-};
 const titre = type ? `Archives : ${libelleType(type, true).toLowerCase()}` : 'Archives';
-const dev = import.meta.env.DEV;
 ---
 <Base titre={titre} description="Toutes les fiches publiées sur Curiosa, de la plus récente à la plus ancienne." page="archives">
-  <div class="colonne">
+  <div class="large">
     <h1 class="page-titre">{titre}</h1>
-    <p class="page-intro">Toutes les fiches publiées, de la plus récente à la plus ancienne.</p>
 
     <nav class="filtres" aria-label="Filtrer par type">
       <ul>
@@ -50,17 +41,8 @@ const dev = import.meta.env.DEV;
     {[...mois.values()].map((liste) => (
       <section class="mois">
         <h2>{moisAnnee(liste[0])}</h2>
-        <ol class="liste-fiches">
-          {liste.map((fiche) => (
-            <li data-type={fiche.data.type}>
-              <time datetime={jour(fiche)}>{dateCourte(fiche)}</time>
-              <div>
-                <span class="type">{libelleType(fiche.data.type)}{dev && !estPubliee(fiche) && ' (programmée)'}</span>
-                <a class="titre" href={chemin(`oeuvre/${fiche.id}/`)}>{typoFr(fiche.data.titre)}</a>
-                {fiche.data.createur && <span class="createur">{typoFr(abreger(fiche.data.createur))}</span>}
-              </div>
-            </li>
-          ))}
+        <ol class="galerie">
+          {liste.map((fiche) => <li><Vignette fiche={fiche} /></li>)}
         </ol>
       </section>
     ))}

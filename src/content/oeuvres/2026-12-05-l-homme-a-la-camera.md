@@ -22,6 +22,11 @@ plus_loin:
     createur: art russe et soviétique, années 1920
     pourquoi: "Un pont vers les arts plastiques et l'architecture : le mouvement qui voulait mettre l'art au service de la vie moderne, des machines et de la construction d'une société nouvelle."
     url: https://fr.wikipedia.org/wiki/Constructivisme_(art)
+image:
+  url: "https://commons.wikimedia.org/wiki/Special:FilePath/Людина_з_кіно2.PNG?width=3840"
+  alt: "Image du film en noir et blanc : un immeuble d'angle surmonté d'une tourelle, filmé en contre-plongée."
+  credit: "Image du film, opérateur Mikhaïl Kaufman, 1929, via Wikimedia Commons"
+  licence: domaine public
 sources:
   - https://fr.wikipedia.org/wiki/L'Homme_à_la_caméra
   - https://commons.wikimedia.org/wiki/Category:Man_with_a_Movie_Camera_(film)

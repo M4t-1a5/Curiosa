@@ -22,7 +22,7 @@ plus_loin:
     pourquoi: "La vague d'influence de l'art japonais sur les artistes européens de la seconde moitié du XIXᵉ siècle, des impressionnistes à Van Gogh."
     url: https://fr.wikipedia.org/wiki/Japonisme
 image:
-  url: https://commons.wikimedia.org/wiki/Special:FilePath/Tsunami_by_hokusai_19th_century.jpg?width=1600
+  url: https://commons.wikimedia.org/wiki/Special:FilePath/Tsunami_by_hokusai_19th_century.jpg?width=3840
   alt: "Une immense vague bleue à crête d'écume, recourbée comme une griffe, s'apprête à s'abattre sur trois longues barques où des rameurs se courbent. Au fond, au centre, le mont Fuji enneigé paraît tout petit, comme une autre vague."
   credit: Katsushika Hokusai, via Wikimedia Commons
   licence: domaine public

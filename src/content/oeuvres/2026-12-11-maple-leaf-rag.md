@@ -25,6 +25,11 @@ plus_loin:
     createur: George Roy Hill, 1973
     pourquoi: "Un pont vers le cinéma. La bande originale, faite de rags de Joplin, a relancé sa musique auprès du grand public soixante ans après sa mort."
     url: https://fr.wikipedia.org/wiki/L'Arnaque
+image:
+  url: "https://commons.wikimedia.org/wiki/Special:FilePath/Maple_Leaf_Rag_1st_ed.jpg?width=3840"
+  alt: "Couverture de la première édition de la partition : le titre « Maple Leaf Rag » en lettres ornées, la mention « composed by Scott Joplin » et deux couples élégants dessinés."
+  credit: "Première édition, John Stark & Son, 1899, Bibliothèque du Congrès, via Wikimedia Commons"
+  licence: domaine public
 sources:
   - https://fr.wikipedia.org/wiki/Maple_Leaf_Rag
   - https://imslp.org/wiki/Maple_Leaf_Rag_(Joplin,_Scott)

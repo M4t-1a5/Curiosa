@@ -20,6 +20,11 @@ plus_loin:
     createur: écrivain, 1913-1960
     pourquoi: "C'est lui qui a fait publier, après la guerre, plusieurs livres de Simone Weil, qu'il tenait pour un esprit majeur de son temps."
     url: https://fr.wikipedia.org/wiki/Albert_Camus
+image:
+  url: "https://commons.wikimedia.org/wiki/Special:FilePath/Simone_Weil_(1909-1943)_portrait.png?width=3840"
+  alt: "Photographie en noir et blanc de Simone Weil, cheveux courts et lunettes rondes, en chemise à col blanc, regardant l'objectif."
+  credit: "Photographie anonyme, New York, 1942, via Wikimedia Commons"
+  licence: domaine public
 sources:
   - https://plato.stanford.edu/entries/simone-weil/
   - https://fr.wikisource.org/wiki/Auteur:Simone_Weil

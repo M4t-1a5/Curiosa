@@ -15,9 +15,11 @@ interface Props {
   page?: 'accueil' | 'archives' | 'a-propos' | 'autre';
   type?: string; // type de l'œuvre affichée, pour la couleur
   indexer?: boolean;
+  scene?: string; // couleur de la « salle » où l'image est exposée (pages d'œuvre illustrées)
+  imagePartage?: string; // URL de l'image montrée quand on partage la page
 }
 
-const { titre, description, canonique, page = 'autre', type, indexer = true } = Astro.props;
+const { titre, description, canonique, page = 'autre', type, indexer = true, scene, imagePartage } = Astro.props;
 const titreComplet = page === 'accueil' ? `Curiosa · ${titre}` : `${titre} · Curiosa`;
 const urlCanonique = new URL(canonique ?? Astro.url.pathname, Astro.site);
 const courant = (nom: string) => (page === nom ? 'page' : undefined);
@@ -35,14 +37,22 @@ const courant = (nom: string) => (page === nom ? 'page' : undefined);
     <meta property="og:description" content={typoFr(description)} />
     <meta property="og:url" content={urlCanonique} />
     <meta property="og:locale" content="fr_FR" />
-    <meta name="theme-color" content="#f4f6f3" media="(prefers-color-scheme: light)" />
-    <meta name="theme-color" content="#151a18" media="(prefers-color-scheme: dark)" />
+    {imagePartage && <meta property="og:image" content={new URL(imagePartage, Astro.site)} />}
+    {imagePartage && <meta name="twitter:card" content="summary_large_image" />}
+    {scene ? (
+      <meta name="theme-color" content={scene} />
+    ) : (
+      <>
+        <meta name="theme-color" content="#f4f6f3" media="(prefers-color-scheme: light)" />
+        <meta name="theme-color" content="#151a18" media="(prefers-color-scheme: dark)" />
+      </>
+    )}
     <link rel="icon" href={chemin('favicon.svg')} type="image/svg+xml" />
     <link rel="alternate" type="application/rss+xml" title="Curiosa" href={chemin('rss.xml')} />
   </head>
-  <body data-type={type}>
+  <body data-type={type} class:list={{ 'avec-scene': scene }} style={scene ? `--scene: ${scene}` : undefined}>
     <a class="lien-evitement" href="#contenu">Aller au contenu</a>
-    <header class="colonne entete-site">
+    <header class="entete-site">
       <a class="marque" href={chemin()} aria-current={courant('accueil')}>Curiosa</a>
       <nav class="navigation" aria-label="Navigation principale">
         <ul>
@@ -55,8 +65,7 @@ const courant = (nom: string) => (page === nom ? 'page' : undefined);
       <slot />
     </main>
     <footer class="colonne pied-site">
-      <p>Curiosa : une œuvre par jour, sans publicité ni compte.</p>
-      <p>Chaque lien mène à une ressource gratuite et légale, vérifiée automatiquement.</p>
+      <p>Une œuvre par jour, sans publicité ni compte. Chaque lien mène à une ressource gratuite et légale, vérifiée automatiquement.</p>
     </footer>
   </body>
 </html>

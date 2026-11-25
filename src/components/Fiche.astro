@@ -1,13 +1,17 @@
 ---
 // Affiche une fiche complète. Utilisée par la page d'accueil et par /oeuvre/<identifiant>/.
+//
+// Si la fiche a une image, elle est exposée seule en haut de page, dans une « salle »
+// plein écran teintée par la couleur de l'œuvre (voir src/lib/images.ts).
 import { Picture } from 'astro:assets';
 import { render } from 'astro:content';
 import {
-  type Fiche, chemin, dateLongue, estPubliee, libelleType, nomSource, roleCreateur, titreSource,
+  type Fiche, chemin, dateLongue, estPubliee, libelleType, nomSource, titreSource,
 } from '../lib/catalogue';
-import { imageDe } from '../lib/images';
+import { imageDe, largeurs } from '../lib/images';
 import { lienAffichable, lienVerifie } from '../lib/verification';
 import { typoFr } from '../lib/typo.mjs';
+import Vignette from './Vignette.astro';
 
 interface Props {
   fiche: Fiche;
@@ -23,41 +27,83 @@ const image = d.image ? imageDe(fiche.id) : undefined;
 const plusLoin = d.plus_loin.filter((lien) => lienAffichable(lien.url));
 const sources = d.sources.filter((url) => lienAffichable(url));
 const dev = import.meta.env.DEV;
-const libelleCreateur = roleCreateur(d.type);
+
+// L'image occupe au plus 70 % de la hauteur de l'écran (voir .scene-image dans global.css).
+// On indique au navigateur sa largeur réelle d'affichage pour qu'il choisisse le bon fichier :
+// sur un écran étroit, elle est limitée par la largeur ; sinon, par la hauteur.
+const ratio = image ? image.width / image.height : 1;
+const tailles = `(max-aspect-ratio: ${Math.round(ratio * 70)}/100) calc(100vw - 2.5rem), ${Math.round(ratio * 70)}vh`;
+
+// Mêmes fichiers pour la salle et pour « Voir en grand » : AVIF (le plus léger à qualité égale),
+// WebP pour les navigateurs plus anciens, jusqu'à 3600 px de large.
+const reglages = {
+  widths: image ? largeurs(image, [800, 1400, 2000, 2800, 3600]) : [],
+  formats: ['avif'] as const,
+  fallbackFormat: 'webp' as const,
+  quality: 75,
+};
+const idZoom = `zoom-${fiche.id}`;
+
+// Ligne sous le titre : « Georges Seurat, 1884-1886 »
+const auteurEtDate = [d.createur, d.epoque].filter(Boolean).join(', ');
 ---
-<article class="colonne fiche" aria-labelledby="titre-fiche">
+{/* Trait de progression de la lecture, animé en CSS (voir « Mouvement » dans global.css). */}
+<div class="fil-lecture" aria-hidden="true"></div>
+
+{image && d.image && (
+  <>
+    <figure class:list={['scene', { 'scene-du-jour': accueil }]}>
+      <div class="scene-cadre">
+        <Picture
+          src={image}
+          alt={d.image.alt}
+          class="scene-image"
+          style={`view-transition-name: o-${fiche.id}`}
+          {...reglages}
+          sizes={tailles}
+          loading="eager"
+          fetchpriority="high"
+        />
+      </div>
+      <figcaption class="scene-legende">
+        <span>{typoFr(d.image.credit)} ({d.image.licence})</span>
+        <button type="button" class="agrandir" popovertarget={idZoom}>Voir en grand</button>
+      </figcaption>
+    </figure>
+
+    {/* Popover natif : s'ouvre avec le bouton, se ferme avec Échap ou « Fermer ». Aucun JavaScript. */}
+    <div popover id={idZoom} class="zoom" role="dialog" aria-label={`${d.titre}, en grand`}>
+      {/* Chargée seulement à l'ouverture (loading="lazy" dans un élément masqué). */}
+      <Picture src={image} alt={d.image.alt} {...reglages} sizes="100vw" loading="lazy" decoding="async" />
+      <button type="button" class="fermer" popovertarget={idZoom} popovertargetaction="hide">Fermer</button>
+    </div>
+  </>
+)}
+
+<article class:list={['colonne', 'fiche', { 'fiche-sans-image': !image }]} aria-labelledby="titre-fiche">
   {dev && !estPubliee(fiche) && (
     <p class="programmee">Aperçu local : cette fiche n’est pas encore publiée (date future ou ressource non vérifiée).</p>
   )}
-  <p class="fiche-date">
-    {accueil ? <>L’œuvre du {dateLongue(fiche)}</> : <>Publiée le {dateLongue(fiche)}</>}
-  </p>
 
-  <header>
-    <p class="fiche-type">{libelleType(d.type)}</p>
+  <header class="fiche-entete">
+    <p class="fiche-surtitre">
+      <span class="fiche-type">{libelleType(d.type)}</span>,{' '}
+      {accueil ? <>l’œuvre du {dateLongue(fiche)}</> : <>publiée le {dateLongue(fiche)}</>}
+    </p>
     <h1 class="fiche-titre" id="titre-fiche">{typoFr(d.titre)}</h1>
     {d.titre_original && <p class="fiche-titre-original" lang="und">{d.titre_original}</p>}
-    <dl class="cartel">
-      {d.createur && libelleCreateur && (<><dt>{libelleCreateur}</dt><dd>{typoFr(d.createur)}</dd></>)}
-      <dt>{d.type === 'auteur' ? 'Vie' : 'Date'}</dt><dd>{typoFr(d.epoque)}</dd>
-      <dt>Accès</dt><dd><a href="#acceder">{nomSource(d.ressource.url)}, gratuit</a></dd>
-    </dl>
+    <p class="fiche-auteur">{typoFr(auteurEtDate)}</p>
     <p class="accroche">{typoFr(d.accroche)}</p>
   </header>
 
-  {image && d.image && (
-    <figure class="fiche-image">
-      <Picture
-        src={image}
-        alt={d.image.alt}
-        widths={[480, 800, 1200, 1600].filter((l) => l <= image.width)}
-        sizes="(min-width: 56rem) 52rem, 100vw"
-        formats={['avif', 'webp']}
-        loading="eager"
-      />
-      <figcaption>{typoFr(d.image.credit)} ({d.image.licence})</figcaption>
-    </figure>
-  )}
+  <p class="acces">
+    <a class="ressource-lien" href={d.ressource.url}>{typoFr(d.ressource.libelle)}</a>
+    {dev && !lienVerifie(d.ressource.url) && <span class="non-verifie">lien non vérifié</span>}
+    <span class="ressource-note">
+      {d.ressource.note && <>{typoFr(d.ressource.note)} </>}
+      Hébergé par {nomSource(d.ressource.url)}, gratuit et légal.
+    </span>
+  </p>
 
   <div class="fiche-texte">
     <Content />
@@ -74,12 +120,14 @@ const libelleCreateur = roleCreateur(d.type);
       <ul>
         {plusLoin.map((lien) => (
           <li data-type={lien.type}>
-            <p class="type-lie" style="color: var(--teinte)">{libelleType(lien.type)}</p>
             <p class="titre-lie">
               <a href={lien.url}>{typoFr(lien.titre)}</a>
               {dev && !lienVerifie(lien.url) && <span class="non-verifie">lien non vérifié</span>}
             </p>
-            {lien.createur && <span class="createur-lie">{typoFr(lien.createur)}</span>}
+            <p class="createur-lie">
+              <span class="type-lie">{libelleType(lien.type)}</span>
+              {lien.createur && <>, {typoFr(lien.createur)}</>}
+            </p>
             <p class="pourquoi">{typoFr(lien.pourquoi)}</p>
           </li>
         ))}
@@ -87,33 +135,19 @@ const libelleCreateur = roleCreateur(d.type);
     </section>
   )}
 
-  <section class="ressource" id="acceder" aria-labelledby="titre-ressource">
-    <h2 class="bloc-titre" id="titre-ressource">Accéder à la ressource</h2>
-    <a class="ressource-lien" href={d.ressource.url}>{typoFr(d.ressource.libelle)}</a>
-    {dev && !lienVerifie(d.ressource.url) && <span class="non-verifie">lien non vérifié</span>}
-    <p>
-      {d.ressource.note && <>{typoFr(d.ressource.note)} </>}
-      Hébergé par {nomSource(d.ressource.url)}, gratuit et légal.
-    </p>
-  </section>
-
   {sources.length > 0 && (
     <p class="sources-fiche">
-      Sources des informations{'\u00A0'}:{' '}
+      Sources des informations{' '}:{' '}
       {sources.map((url, i) => (
         <>{i > 0 && ', '}<a href={url}>{titreSource(url)}</a></>
       ))}.
     </p>
   )}
-
-  {(precedente || suivante) && (
-    <nav class="voisines" aria-label="Autres fiches">
-      {precedente ? (
-        <p class="precedente"><span>Fiche précédente</span><a href={chemin(`oeuvre/${precedente.id}/`)}>{typoFr(precedente.data.titre)}</a></p>
-      ) : <p></p>}
-      {suivante && (
-        <p class="suivante"><span>Fiche suivante</span><a href={chemin(`oeuvre/${suivante.id}/`)}>{typoFr(suivante.data.titre)}</a></p>
-      )}
-    </nav>
-  )}
 </article>
+
+{(precedente || suivante) && (
+  <nav class="voisines large" aria-label="Autres fiches">
+    {precedente ? <Vignette fiche={precedente} legende="Fiche précédente" /> : <span></span>}
+    {suivante && <Vignette fiche={suivante} legende="Fiche suivante" />}
+  </nav>
+)}

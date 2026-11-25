@@ -3,6 +3,7 @@
 import Base from '../../layouts/Base.astro';
 import Fiche from '../../components/Fiche.astro';
 import { fichesVisibles } from '../../lib/catalogue';
+import { habillage } from '../../lib/images';
 
 export async function getStaticPaths() {
   const fiches = await fichesVisibles(); // de la plus récente à la plus ancienne
@@ -13,7 +14,8 @@ export async function getStaticPaths() {
 }
 
 const { fiche, precedente, suivante } = Astro.props;
+const decor = await habillage(fiche.id, Boolean(fiche.data.image));
 ---
-<Base titre={fiche.data.titre} description={fiche.data.accroche} type={fiche.data.type}>
+<Base titre={fiche.data.titre} description={fiche.data.accroche} type={fiche.data.type} {...decor}>
   <Fiche fiche={fiche} precedente={precedente} suivante={suivante} />
 </Base>

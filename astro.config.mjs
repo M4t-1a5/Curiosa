@@ -18,6 +18,8 @@ export default defineConfig({
   site: process.env.CURIOSA_SITE ?? 'https://m4t-1a5.github.io',
   base: process.env.CURIOSA_BASE ?? '/Curiosa',
   trailingSlash: 'always',
+  // Barre d'outils d'Astro affichée en bas de page pendant « npm run dev » : désactivée.
+  devToolbar: { enabled: false },
   markdown: {
     processor: satteri({ mdastPlugins: [typographieFrancaise] }),
   },

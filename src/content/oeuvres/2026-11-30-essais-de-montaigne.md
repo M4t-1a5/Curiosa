@@ -21,6 +21,11 @@ plus_loin:
     createur: Étienne de La Boétie, vers 1550
     pourquoi: "Le texte de l'ami intime de Montaigne, dont la mort l'a profondément marqué : pourquoi des peuples entiers obéissent-ils à un seul ?"
     url: https://fr.wikipedia.org/wiki/Discours_de_la_servitude_volontaire
+image:
+  url: "https://commons.wikimedia.org/wiki/Special:FilePath/Michel_de_Montaigne,_Portrait_from_Tietz_edition_(1753).png?width=3840"
+  alt: "Gravure : Montaigne en fraise et habit sombre, assis à une table près de livres, dans un médaillon ; en dessous, l'inscription « Michel Seigneur de Montagne »."
+  credit: "Gravure de J. C. G. Fritzsch, 1753, via Wikimedia Commons"
+  licence: domaine public
 sources:
   - https://fr.wikipedia.org/wiki/Essais_(Montaigne)
   - https://fr.wikipedia.org/wiki/Michel_de_Montaigne

@@ -25,6 +25,11 @@ plus_loin:
     createur: Alan Turing, 1950
     pourquoi: "Dans l'article où il propose son test, Turing discute longuement une objection qu'il attribue à Ada Lovelace : une machine ne fait que ce qu'on lui a ordonné."
     url: https://fr.wikipedia.org/wiki/Test_de_Turing
+image:
+  url: "https://commons.wikimedia.org/wiki/Special:FilePath/Ada_Lovelace.jpg?width=3840"
+  alt: "Portrait en pied d'Ada Lovelace, jeune femme en robe de soirée blanche satinée aux manches bouffantes, une étole rouge sur les bras, debout au pied d'un escalier."
+  credit: "Margaret Sarah Carpenter, 1836, Government Art Collection, via Wikimedia Commons"
+  licence: domaine public
 sources:
   - https://fr.wikipedia.org/wiki/Ada_Lovelace
   - https://en.wikisource.org/wiki/Author:Augusta_Ada_Byron

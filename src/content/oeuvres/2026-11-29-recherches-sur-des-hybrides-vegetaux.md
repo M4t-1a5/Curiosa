@@ -21,6 +21,11 @@ plus_loin:
     createur: Andrew Niccol, 1997
     pourquoi: "Un pont vers le cinéma. Une société où l'on choisit les gènes des enfants : ce que deviennent, poussées à l'extrême, les découvertes nées des petits pois de Mendel."
     url: https://fr.wikipedia.org/wiki/Bienvenue_à_Gattaca
+image:
+  url: "https://commons.wikimedia.org/wiki/Special:FilePath/Gregor_Mendel_Monk.jpg?width=3840"
+  alt: "Portrait gravé en noir et blanc de Gregor Mendel, avec des lunettes, en habit religieux, une croix pectorale sur la poitrine."
+  credit: "Frontispice de Mendel's Principles of Heredity, de William Bateson, 1902, via Wikimedia Commons"
+  licence: domaine public
 sources:
   - https://fr.wikipedia.org/wiki/Gregor_Mendel
   - https://archive.org/details/versucheberpflan00mend

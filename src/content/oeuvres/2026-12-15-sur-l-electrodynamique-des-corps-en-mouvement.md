@@ -22,6 +22,11 @@ plus_loin:
     createur: mathématicien et physicien, 1854-1912
     pourquoi: "Un pont vers la philosophie des sciences. Avant Einstein, il avait déjà interrogé la simultanéité et la mesure du temps, et ses livres de réflexion restent lisibles par tous."
     url: https://fr.wikipedia.org/wiki/Henri_Poincaré
+image:
+  url: "https://commons.wikimedia.org/wiki/Special:FilePath/Einstein_patentoffice.jpg?width=3840"
+  alt: "Photographie en noir et blanc d'Albert Einstein jeune, moustachu, les cheveux bouclés, en veste à carreaux."
+  credit: "Lucien Chavan, 1904 ou 1905, Archives Albert Einstein, via Wikimedia Commons"
+  licence: domaine public
 sources:
   - https://fr.wikipedia.org/wiki/De_l'électrodynamique_des_corps_en_mouvement
   - https://de.wikisource.org/wiki/Relativitätstheorie

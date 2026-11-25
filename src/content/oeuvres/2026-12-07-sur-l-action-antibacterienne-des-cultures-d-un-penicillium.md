@@ -24,6 +24,11 @@ plus_loin:
     type: idee
     pourquoi: "Le revers de la découverte, que Fleming lui-même redoutait : les bactéries s'adaptent, et les antibiotiques perdent leur efficacité."
     url: https://fr.wikipedia.org/wiki/Résistance_aux_antibiotiques
+image:
+  url: "https://commons.wikimedia.org/wiki/Special:FilePath/Sir_Alexander_Fleming,_Frs,_the_Discoverer_of_Penicillin_Art.IWMARTLD4217.jpg?width=3840"
+  alt: "Tableau : Alexander Fleming en blouse blanche, assis à sa table de laboratoire encombrée de flacons et de tubes, près d'une fenêtre."
+  credit: "Ethel Gabain, 1944, Imperial War Museums, via Wikimedia Commons"
+  licence: domaine public
 sources:
   - https://fr.wikipedia.org/wiki/Alexander_Fleming
   - https://pmc.ncbi.nlm.nih.gov/articles/PMC2566493/

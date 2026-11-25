@@ -23,7 +23,7 @@ plus_loin:
     pourquoi: "Un pont vers la poésie. Quinze siècles avant Bruegel, un poète romain célébrait déjà le travail des champs au fil des saisons."
     url: https://fr.wikipedia.org/wiki/Géorgiques
 image:
-  url: https://commons.wikimedia.org/wiki/Special:FilePath/Pieter_Bruegel_the_Elder-_The_Harvesters_-_Google_Art_Project_(cropped).jpg?width=1600
+  url: https://commons.wikimedia.org/wiki/Special:FilePath/Pieter_Bruegel_the_Elder-_The_Harvesters_-_Google_Art_Project.jpg?width=3840
   alt: "Un champ de blé doré en pente. À gauche, des paysans fauchent et lient des gerbes ; au premier plan, sous un poirier, un groupe pique-nique de pain et de bouillie, tandis qu'un homme dort étendu. Au loin, une vallée, un village, une église et une baie bleutée."
   credit: Pieter Bruegel l'Ancien, Metropolitan Museum of Art, via Wikimedia Commons
   licence: domaine public

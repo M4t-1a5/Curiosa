@@ -21,6 +21,11 @@ plus_loin:
     createur: romancière américaine, 1929-2018
     pourquoi: "Un pont vers la science-fiction. La grande romancière, nourrie de taoïsme, en a publié sa propre version en anglais, et ses romans en portent la trace."
     url: https://fr.wikipedia.org/wiki/Ursula_K._Le_Guin
+image:
+  url: "https://commons.wikimedia.org/wiki/Special:FilePath/老子骑牛轴.明.张路画.纸本浅设色.台北故宫博物院藏.tif?width=3840"
+  alt: "Peinture à l'encre sur papier, aux couleurs légères : un vieil homme à longue barbe, monté sur un buffle."
+  credit: "Zhang Lu, Laozi monté sur un buffle, dynastie Ming, musée national du Palais (Taipei), via Wikimedia Commons"
+  licence: domaine public
 sources:
   - https://fr.wikipedia.org/wiki/Tao_Te_King
   - https://fr.wikisource.org/wiki/Tao_Te_King_(Stanislas_Julien)

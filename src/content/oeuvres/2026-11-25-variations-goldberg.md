@@ -22,6 +22,11 @@ plus_loin:
     createur: pianiste canadien, 1932-1982
     pourquoi: "Son enregistrement des Variations en 1955, rapide et sec, puis celui de 1981, lent et méditatif, ont fait connaître l'œuvre au grand public."
     url: https://fr.wikipedia.org/wiki/Glenn_Gould
+image:
+  url: "https://commons.wikimedia.org/wiki/Special:FilePath/Johann_Sebastian_Bach_-_Google_Arts_Project.jpg?width=3840"
+  alt: "Portrait peint de Jean-Sébastien Bach, en perruque blanche et habit vert sombre à boutons d'argent, tenant à la main une feuille de musique."
+  credit: "Elias Gottlob Haussmann, portrait de Bach, 1748, via Wikimedia Commons"
+  licence: domaine public
 sources:
   - https://fr.wikipedia.org/wiki/Variations_Goldberg
   - https://archive.org/details/OpenGoldbergVariations

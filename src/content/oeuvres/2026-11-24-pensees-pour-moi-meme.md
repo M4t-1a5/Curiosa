@@ -26,6 +26,11 @@ plus_loin:
     type: idee
     pourquoi: "Un pont vers la psychologie. Les thérapies cognitives reprennent une idée stoïcienne centrale : ce ne sont pas les événements qui nous troublent, mais les jugements que nous portons sur eux."
     url: https://fr.wikipedia.org/wiki/Thérapie_cognitivo-comportementale
+image:
+  url: "https://commons.wikimedia.org/wiki/Special:FilePath/Marcus_Aurelius_Capitoline_Hill_September_2015-1.jpg?width=3840"
+  alt: "Statue équestre en bronze de Marc Aurèle, le bras droit tendu, devant un palais de la place du Capitole, à Rome, sous un ciel bleu."
+  credit: "Réplique de la statue équestre de Marc Aurèle, place du Capitole (Rome), photographie d'Alvesgaspar, 2015, via Wikimedia Commons"
+  licence: domaine public
 sources:
   - https://fr.wikipedia.org/wiki/Pensées_pour_moi-même
   - https://fr.wikipedia.org/wiki/Marc_Aurèle

@@ -1,0 +1,48 @@
+---
+// Une fiche en miniature : l'œuvre exposée dans sa petite « salle » teintée,
+// ou, sans image, le type de l'œuvre écrit en grand sur sa couleur.
+// Utilisée dans les archives et en bas de chaque fiche (précédente, suivante).
+import { Picture } from 'astro:assets';
+import { type Fiche, chemin, dateCourte, estPubliee, libelleType } from '../lib/catalogue';
+import { imageDe, largeurs, sceneDe } from '../lib/images';
+import { typoFr } from '../lib/typo.mjs';
+
+interface Props {
+  fiche: Fiche;
+  legende?: string; // ex. « Fiche précédente » ; sinon, la date de publication
+}
+
+const { fiche, legende } = Astro.props;
+const d = fiche.data;
+const image = d.image ? imageDe(fiche.id) : undefined;
+const scene = image ? sceneDe(fiche.id) : undefined;
+const dev = import.meta.env.DEV;
+
+// Un créateur collectif est abrégé : « Ashish Vaswani et coll. »
+const noms = (d.createur ?? '').split(/, | et /);
+const createur = d.createur && d.createur.length > 60 && noms.length > 2 ? `${noms[0]} et coll.` : d.createur;
+---
+<a class="vignette" href={chemin(`oeuvre/${fiche.id}/`)} data-type={d.type}>
+  <span class:list={['vignette-salle', { 'vignette-sans-image': !image }]} style={scene ? `background-color: ${scene}` : undefined}>
+    {image ? (
+      <Picture
+        src={image}
+        alt=""
+        style={`view-transition-name: o-${fiche.id}`}
+        widths={largeurs(image, [320, 480, 720])}
+        sizes="(min-width: 64rem) 20rem, (min-width: 40rem) 45vw, 90vw"
+        formats={['avif']}
+        fallbackFormat="webp"
+        loading="lazy"
+      />
+    ) : (
+      <span class="vignette-type" aria-hidden="true">{libelleType(d.type)}</span>
+    )}
+  </span>
+  <span class="vignette-legende">
+    {legende ?? <time datetime={fiche.data.date.toISOString().slice(0, 10)}>{dateCourte(fiche)}</time>}
+    {dev && !estPubliee(fiche) && ' (programmée)'}
+  </span>
+  <span class="vignette-titre">{typoFr(d.titre)}</span>
+  <span class="vignette-createur">{libelleType(d.type)}{createur && <>, {typoFr(createur)}</>}</span>
+</a>

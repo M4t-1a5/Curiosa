@@ -21,6 +21,11 @@ plus_loin:
     createur: Henry Wadsworth Longfellow, 1855
     pourquoi: "Un pont vers la poésie. Le long poème américain, inspiré de légendes amérindiennes, que Dvořák a cité comme une source d'inspiration de sa symphonie."
     url: https://fr.wikipedia.org/wiki/Le_Chant_de_Hiawatha
+image:
+  url: "https://commons.wikimedia.org/wiki/Special:FilePath/The_title_page_of_the_autograph_score_of_Dvořák's_ninth_symphony.jpg?width=3840"
+  alt: "Page de titre manuscrite de la partition, à l'encre sur du papier à musique jauni, avec le titre « Z nového světa » et la signature de Dvořák."
+  credit: "Antonín Dvořák, partition autographe, 1893, via Wikimedia Commons"
+  licence: domaine public
 sources:
   - https://fr.wikipedia.org/wiki/Symphonie_no_9_de_Dvořák
   - https://commons.wikimedia.org/wiki/File:Antonin_Dvorak_-_symphony_no._9_in_e_minor_'from_the_new_world',_op._95_-_ii._largo.ogg

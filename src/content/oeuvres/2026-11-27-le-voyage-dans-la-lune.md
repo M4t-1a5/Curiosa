@@ -21,6 +21,11 @@ plus_loin:
     createur: Martin Scorsese, 2011
     pourquoi: "Un film pour tous les âges qui raconte, à travers un enfant, la redécouverte de Méliès vieillissant, oublié de tous."
     url: https://fr.wikipedia.org/wiki/Hugo_Cabret
+image:
+  url: "https://commons.wikimedia.org/wiki/Special:FilePath/Melies_color_Voyage_dans_la_lune.jpg?width=3840"
+  alt: "Image du film colorisée à la main : la Lune, dotée d'un visage humain, avec un obus rouge planté dans l'œil, au milieu de nuages bleu-vert."
+  credit: "Georges Méliès, 1902, copie colorisée à la main, via Wikimedia Commons"
+  licence: domaine public
 sources:
   - https://fr.wikipedia.org/wiki/Le_Voyage_dans_la_Lune
   - https://commons.wikimedia.org/wiki/Category:Le_voyage_dans_la_lune_(film)

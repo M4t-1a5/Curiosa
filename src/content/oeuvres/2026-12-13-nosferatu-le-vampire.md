@@ -22,6 +22,11 @@ plus_loin:
     createur: Robert Wiene, 1920
     pourquoi: "L'autre grand film de l'expressionnisme allemand, tourné dans des décors peints aux formes tordues, là où Murnau filmait de vrais paysages."
     url: https://fr.wikipedia.org/wiki/Le_Cabinet_du_docteur_Caligari
+image:
+  url: "https://commons.wikimedia.org/wiki/Special:FilePath/Nosferatu_(1922)_-_Count_Orlok_Standing_In_A_Wooden_Doorway_(Greyscale).png?width=3840"
+  alt: "Image du film en noir et blanc : le comte Orlok, chauve et voûté, immobile dans l'encadrement d'une porte en ogive, au fond d'une pièce sombre."
+  credit: "F. W. Murnau, 1922, avec Max Schreck dans le rôle du comte Orlok, via Wikimedia Commons"
+  licence: domaine public
 sources:
   - https://fr.wikipedia.org/wiki/Nosferatu_le_vampire
   - https://commons.wikimedia.org/wiki/Category:Nosferatu

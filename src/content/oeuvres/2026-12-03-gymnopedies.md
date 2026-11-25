@@ -26,6 +26,11 @@ plus_loin:
     createur: compositeur américain, 1912-1992
     pourquoi: "Un grand admirateur de Satie, qui a poussé encore plus loin l'idée de dépouillement, jusqu'à une œuvre faite de silence."
     url: https://fr.wikipedia.org/wiki/John_Cage
+image:
+  url: "https://commons.wikimedia.org/wiki/Special:FilePath/Suzanne_Valadon_-_Portrait_d'Erik_Satie.jpg?width=3840"
+  alt: "Portrait peint d'Erik Satie jeune, barbu, avec un lorgnon et un chapeau noir, en touches vives de rouge, de vert et de bleu."
+  credit: "Suzanne Valadon, 1893, via Wikimedia Commons"
+  licence: domaine public
 sources:
   - https://fr.wikipedia.org/wiki/Gymnopédies
   - https://imslp.org/wiki/3_Gymnopédies_(Satie,_Erik)

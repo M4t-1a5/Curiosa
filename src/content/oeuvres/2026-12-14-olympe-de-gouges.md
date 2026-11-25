@@ -19,6 +19,11 @@ plus_loin:
     createur: Mary Wollstonecraft, 1792
     pourquoi: "Un pont vers l'Angleterre : un an plus tard, une autrice anglaise publie le grand texte fondateur du féminisme anglophone. Elle est la mère de Mary Shelley."
     url: https://fr.wikipedia.org/wiki/Défense_des_droits_de_la_femme
+image:
+  url: "https://commons.wikimedia.org/wiki/Special:FilePath/Olympe_de_Gouges_-_portrait.jpg?width=3840"
+  alt: "Dessin rehaussé de couleurs : Olympe de Gouges en robe blanche et coiffure poudrée, assise dans un fauteuil Louis XV, un livre à la main."
+  credit: "Portrait anonyme, 1793, via Wikimedia Commons"
+  licence: domaine public
 sources:
   - https://fr.wikipedia.org/wiki/Olympe_de_Gouges
   - https://fr.wikisource.org/wiki/Auteur:Olympe_de_Gouges

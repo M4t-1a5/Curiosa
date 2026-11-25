@@ -4,7 +4,7 @@ Une œuvre par jour pour s'enrichir l'esprit : un livre, un tableau, un article 
 
 Site : <https://m4t-1a5.github.io/Curiosa/>
 
-Une page, une œuvre. Pas de publicité, pas de compte, pas de mesure d'audience, pas de JavaScript. Chaque lien mène à une ressource **gratuite, légale et vérifiée** (statut HTTP 200).
+Une page, une œuvre, exposée en grand. Pas de publicité, pas de compte, pas de mesure d'audience, pas de JavaScript (les effets sont en CSS). Chaque lien mène à une ressource **gratuite, légale et vérifiée** (statut HTTP 200).
 
 ## Démarrer
 
@@ -60,6 +60,15 @@ npm run chercher -- wikipedia "Les Moissonneurs"
 
 Sources disponibles : `wikidata`, `wikipedia`, `wikisource`, `gutenberg`, `aic` (Art Institute of Chicago), `met`, `arxiv`, `openalex`, `archive` (Internet Archive).
 
+Pour trouver une image libre de droits (domaine public ou CC0) :
+
+```bash
+npm run proposer-images                      # toutes les fiches sans image
+npm run proposer-images -- drafts/x.md       # une seule fiche
+```
+
+Le script part des pages Wikipédia citées dans `sources`, lit l'image de l'article et celle de Wikidata, et affiche leur taille et leur licence. Regardez l'image avant de l'ajouter : le texte alternatif décrit ce qu'on voit, rien de plus. Préférez une image d'au moins 1500 px de large : elle est téléchargée en 3840 px au plus.
+
 ## Format d'une fiche
 
 Un fichier Markdown par fiche. L'en-tête contient les faits et les liens ; le corps contient les quatre sections rédigées.
@@ -84,8 +93,8 @@ plus_loin:                    # 1 à 3 œuvres liées
     createur: Épictète
     pourquoi: Une ou deux phrases sur le lien avec l'œuvre du jour.
     url: https://fr.wikisource.org/wiki/...
-image:                        # facultatif, tableaux dans le domaine public uniquement
-  url: https://www.artic.edu/iiif/2/.../full/1686,/0/default.jpg
+image:                        # facultatif, domaine public ou CC0 uniquement (tout type d'œuvre)
+  url: https://commons.wikimedia.org/wiki/Special:FilePath/....jpg?width=3840
   alt: Description de l'image pour les personnes aveugles.
   credit: Art Institute of Chicago
   licence: CC0                # « CC0 » ou « domaine public »
@@ -135,10 +144,10 @@ src/content/oeuvres/   le catalogue : une fiche par fichier
 src/content.config.ts  le schéma d'une fiche (champs obligatoires)
 src/data/              types d'œuvres et liste blanche des sources
 src/pages/             accueil, /oeuvre/<fiche>/, /archives/<type>/, à propos, RSS
-src/components/        Fiche.astro (une fiche), Archives.astro (la liste)
+src/components/        Fiche.astro (une fiche), Archives.astro (la galerie), Vignette.astro
 src/lib/               date du jour, fiches publiées, typographie française
 src/styles/global.css  toute la mise en page (clair et sombre automatiques)
-scripts/               verify, generate, publier, chercher, images
+scripts/               verify, generate, publier, chercher, images, proposer-images
 drafts/                brouillons à relire (jamais publiés)
 ```
 

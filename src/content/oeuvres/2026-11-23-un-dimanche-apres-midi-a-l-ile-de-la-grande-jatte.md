@@ -22,7 +22,7 @@ plus_loin:
     pourquoi: "Le tableau devenu spectacle de Broadway : une fiction sur Seurat au travail, et sur ce que coûte une œuvre."
     url: https://en.wikipedia.org/wiki/Sunday_in_the_Park_with_George
 image:
-  url: https://commons.wikimedia.org/wiki/Special:FilePath/Georges_Seurat_-_Un_dimanche_après-midi_à_l'Île_de_la_Grande_Jatte.jpg?width=1600
+  url: https://commons.wikimedia.org/wiki/Special:FilePath/Georges_Seurat_-_A_Sunday_on_La_Grande_Jatte_--_1884_-_Google_Art_Project.jpg?width=3840
   alt: "Une berge herbeuse au bord de la Seine, au soleil. Des dizaines de promeneurs immobiles, assis ou debout, peints en petites touches de couleur : des couples sous des ombrelles, une fillette en blanc au centre, une femme tenant un singe en laisse, des voiliers sur l'eau."
   credit: Georges Seurat, Art Institute of Chicago, via Wikimedia Commons
   licence: domaine public

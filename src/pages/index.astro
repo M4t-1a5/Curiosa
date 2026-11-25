@@ -3,12 +3,14 @@
 import Base from '../layouts/Base.astro';
 import Fiche from '../components/Fiche.astro';
 import { chemin, fichesPubliees } from '../lib/catalogue';
+import { habillage } from '../lib/images';
 
 const publiees = await fichesPubliees();
 const fiche = publiees[0];
+const decor = fiche ? await habillage(fiche.id, Boolean(fiche.data.image)) : {};
 ---
 {fiche ? (
-  <Base titre={fiche.data.titre} description={fiche.data.accroche} canonique={chemin(`oeuvre/${fiche.id}/`)} page="accueil" type={fiche.data.type}>
+  <Base titre={fiche.data.titre} description={fiche.data.accroche} canonique={chemin(`oeuvre/${fiche.id}/`)} page="accueil" type={fiche.data.type} {...decor}>
     <Fiche fiche={fiche} accueil precedente={publiees[1]} />
   </Base>
 ) : (

@@ -22,12 +22,14 @@ Site personnel, en français, qui présente une œuvre par jour (livre, tableau,
 - YAML : mettre entre guillemets toute valeur contenant « : » suivi d'une espace.
 - Corps d'une fiche : exactement les quatre sections `## En quoi ça consiste`, `## Ce que ça apporte`, `## Ce que ça a changé`, `## Par où commencer` (350 à 500 mots en tout, environ trois minutes de lecture).
 - `plus_loin` : 1 à 3 œuvres, au moins une dans un autre domaine.
-- Images : tableaux dans le domaine public ou CC0 seulement ; téléchargées par `npm run images` dans `src/assets/oeuvres/` (non versionné).
+- Images : le plus possible, pour tous les types (tableau, portrait, page de titre, image de film…), mais dans le domaine public ou en CC0 seulement. `npm run proposer-images` les cherche sur Wikipédia, Wikidata et Commons ; on regarde chaque image avant d'écrire son texte alternatif. Téléchargées en 3840 px par `npm run images` dans `src/assets/oeuvres/` (non versionné), avec leur couleur d'ambiance (`couleurs.json`).
 - Code simple et commenté en français : l'utilisateur veut pouvoir le lire et le modifier.
 
 ## Design
 
-Une colonne de lecture, beaucoup d'air, mode clair et sombre automatiques, aucune animation. Titres en Newsreader, texte en Instrument Sans. Une seule couleur forte par page : la teinte du type de l'œuvre, réservée au bloc « Une question à garder en tête ». Pas de libellés en capitales, pas de cartes ombrées, pas de flèches décoratives. Accessibilité : contrastes AA, focus visible, lien d'évitement, navigation clavier.
+Minimaliste et vivant : l'œuvre d'abord. Une fiche illustrée s'ouvre sur une « salle » plein écran dont le fond est la couleur de l'image, très assombrie ; l'œuvre y est entière, jamais recadrée (vignettes comprises). Puis une colonne de lecture, beaucoup d'air. Titres en Newsreader, texte en Instrument Sans. Une seule couleur vive par page : la teinte du type de l'œuvre, réservée au bloc « Une question à garder en tête » (et aux vignettes sans image). Pas de libellés en capitales, pas de cartes ombrées, pas de flèches décoratives.
+
+Mouvement : CSS uniquement, aucun JavaScript, lent et lié au défilement de préférence (l'utilisateur aime ces effets). Transitions entre pages (l'image passe de la vignette à la salle), révélation de l'œuvre du jour sur l'accueil, « mise au point » au défilement (l'œuvre recule et se floute, le titre devient net), fil de lecture, rideau de la question, dérive des œuvres dans les vignettes, ouverture de « Voir en grand ». Pas d'apparitions en cascade sur chaque bloc. Tout s'arrête avec `prefers-reduced-motion`. Accessibilité : contrastes AA, focus visible, lien d'évitement, navigation clavier.
 
 ## Environnement cloud
 
