@@ -122,9 +122,9 @@ Sur GitHub, cette vérification tourne **avant chaque mise en ligne et chaque nu
 
 ## Mise en ligne
 
-Le site est publié sur GitHub Pages par `.github/workflows/publier.yml`, à chaque envoi sur `main` et chaque nuit vers minuit (heure de Paris), pour faire apparaître l'œuvre du jour.
+Le workflow `.github/workflows/publier.yml` vérifie les liens, construit le site et écrit le résultat dans la branche `gh-pages`, que GitHub Pages sert à l'adresse <https://m4t-1a5.github.io/Curiosa/>. Il se lance à chaque envoi sur `main` et chaque nuit vers minuit (heure de Paris), pour faire apparaître l'œuvre du jour. Ne modifiez pas la branche `gh-pages` à la main : elle est remplacée à chaque publication.
 
-- **Première fois** : dans le dépôt sur GitHub, *Settings → Pages → Build and deployment → Source* : choisir **GitHub Actions**.
+- **Réglage GitHub** (déjà fait) : *Settings → Pages → Build and deployment → Source* : **Deploy from a branch**, branche `gh-pages`, dossier `/ (root)`.
 - **Nom de domaine personnel** : définir les variables `CURIOSA_SITE` (ex. `https://curiosa.fr`) et `CURIOSA_BASE=/` dans le workflow, et configurer le domaine dans *Settings → Pages*.
 - GitHub met en pause les tâches planifiées d'un dépôt public sans activité depuis 60 jours. Si l'œuvre du jour ne change plus, relancez le workflow depuis l'onglet *Actions* (ou ajoutez une fiche).
 
