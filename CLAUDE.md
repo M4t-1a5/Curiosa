@@ -20,7 +20,7 @@ Site personnel, en français, qui présente une œuvre par jour (livre, tableau,
 - Tout le texte visible est en français. Écriture inclusive sans point médian (il est quasi invisible avec Instrument Sans) : préférer des tournures neutres.
 - Fichiers de fiche : `src/content/oeuvres/AAAA-MM-JJ-slug.md`, le `date` du YAML égal au préfixe du nom. Une seule fiche par jour.
 - YAML : mettre entre guillemets toute valeur contenant « : » suivi d'une espace.
-- Corps d'une fiche : exactement les quatre sections `## En quoi ça consiste`, `## Ce que ça apporte`, `## Ce que ça a changé`, `## Par où commencer` (450 à 650 mots en tout).
+- Corps d'une fiche : exactement les quatre sections `## En quoi ça consiste`, `## Ce que ça apporte`, `## Ce que ça a changé`, `## Par où commencer` (350 à 500 mots en tout, environ trois minutes de lecture).
 - `plus_loin` : 1 à 3 œuvres, au moins une dans un autre domaine.
 - Images : tableaux dans le domaine public ou CC0 seulement ; téléchargées par `npm run images` dans `src/assets/oeuvres/` (non versionné).
 - Code simple et commenté en français : l'utilisateur veut pouvoir le lire et le modifier.

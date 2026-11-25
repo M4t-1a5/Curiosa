@@ -64,9 +64,10 @@ jobs:
       - id: deploiement
         uses: actions/deploy-pages@v4
 
+  # Signale les liens à corriger, même si la mise en ligne a réussi (e-mail de GitHub).
   signaler:
-    needs: [construire, deployer]
-    if: needs.construire.outputs.verification == 'failure'
+    needs: construire
+    if: always() && needs.construire.outputs.verification == 'failure'
     runs-on: ubuntu-latest
     steps:
       - run: |

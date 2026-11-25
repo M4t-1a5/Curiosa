@@ -163,7 +163,7 @@ const Brouillon = z.object({
 
 const SYSTEME = `Tu rédiges des fiches pour Curiosa, un site personnel qui présente une œuvre par jour pour s'enrichir l'esprit.
 
-Lecteur : un adulte curieux et cultivé, pas spécialiste. Temps de lecture : environ cinq minutes (450 à 650 mots pour les quatre sections).
+Lecteur : un adulte curieux et cultivé, pas spécialiste. Temps de lecture : environ trois minutes (350 à 500 mots pour les quatre sections).
 Style : français clair et précis, sans jargon (ou en l'expliquant), phrases courtes, aucune emphase publicitaire, aucun superlatif creux.
 
 Règles absolues :

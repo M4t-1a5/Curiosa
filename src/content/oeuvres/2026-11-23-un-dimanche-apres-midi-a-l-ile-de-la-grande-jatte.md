@@ -7,15 +7,15 @@ epoque: 1884-1886
 accroche: "Une berge de la Seine un dimanche, peinte point par point pendant deux ans, comme une expérience de laboratoire sur la couleur."
 question: "Qu'est-ce qui change quand on regarde de très près, puis de loin ?"
 ressource:
-  libelle: Voir le tableau en très haute définition à l'Art Institute of Chicago
-  url: https://www.artic.edu/artworks/27992/a-sunday-on-la-grande-jatte-1884
-  note: "Le site du musée permet de zoomer jusqu'aux points de couleur. Image en libre accès (CC0)."
+  libelle: Voir le tableau en haute définition sur Wikimedia Commons
+  url: https://commons.wikimedia.org/wiki/File:Georges_Seurat_-_Un_dimanche_après-midi_à_l'Île_de_la_Grande_Jatte.jpg
+  note: "Reproduction dans le domaine public : ouvrez l'image en pleine taille pour zoomer jusqu'aux points de couleur. L'original est conservé à l'Art Institute of Chicago."
 plus_loin:
-  - titre: De la loi du contraste simultané des couleurs
-    type: livre
+  - titre: Loi du contraste simultané des couleurs
+    type: idee
     createur: Michel-Eugène Chevreul, 1839
-    pourquoi: "Un pont vers la chimie. Ce traité d'un chimiste explique pourquoi deux couleurs complémentaires posées côte à côte paraissent plus vives ; Seurat s'en est inspiré."
-    url: https://gallica.bnf.fr/ark:/12148/bpt6k5606385f
+    pourquoi: "Un pont vers la chimie. Ce principe énoncé par un chimiste explique pourquoi deux couleurs complémentaires posées côte à côte paraissent plus vives ; Seurat s'en est inspiré."
+    url: https://fr.wikipedia.org/wiki/Loi_du_contraste_simultané_des_couleurs
   - titre: Sunday in the Park with George
     type: comédie musicale
     createur: Stephen Sondheim et James Lapine, 1984
@@ -28,7 +28,7 @@ image:
   licence: domaine public
 sources:
   - https://fr.wikipedia.org/wiki/Un_dimanche_après-midi_à_l'île_de_la_Grande_Jatte
-  - https://www.artic.edu/artworks/27992/a-sunday-on-la-grande-jatte-1884
+  - https://commons.wikimedia.org/wiki/Category:Un_dimanche_après-midi_à_l'Île_de_la_Grande_Jatte
 ---
 
 ## En quoi ça consiste
@@ -51,4 +51,4 @@ Le tableau n'a pas été fait d'un jet. Seurat y a travaillé en deux campagnes,
 
 ## Par où commencer
 
-Sur le site du musée, regardez d'abord l'image entière quelques secondes, puis zoomez sur un seul visage, ou sur l'eau au bord de la rive : vous verrez apparaître des points orange au milieu des bleus, des verts dans les ombres. Cherchez ensuite la femme qui tient un singe en laisse, à droite, et la fillette en blanc au centre, l'un des rares personnages qui marchent vers nous.
+Sur Wikimedia Commons, ouvrez l'image en pleine taille. Regardez d'abord l'image entière quelques secondes, puis zoomez sur un seul visage, ou sur l'eau au bord de la rive : vous verrez apparaître des points orange au milieu des bleus, des verts dans les ombres. Cherchez ensuite la femme qui tient un singe en laisse, à droite, et la fillette en blanc au centre, l'un des rares personnages qui marchent vers nous.
