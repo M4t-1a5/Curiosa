@@ -7,9 +7,9 @@ epoque: 1785-1795
 accroche: "L'idée que la Terre est immensément vieille, si vieille que l'histoire humaine n'en occupe que les dernières secondes."
 question: "Si toute l'histoire de la Terre tenait en une journée, à quelle heure commencerait la mienne ?"
 ressource:
-  libelle: Lire Theory of the Earth de James Hutton sur Project Gutenberg
-  url: https://www.gutenberg.org/ebooks/12861
-  note: "En anglais. Le premier volume de l'ouvrage publié en 1795. Domaine public."
+  libelle: Lire Theory of the Earth de James Hutton sur Internet Archive
+  url: https://archive.org/details/theoryoftheearth12861gut
+  note: "En anglais. Le premier volume de l'ouvrage publié en 1795, dans l'édition numérique de Project Gutenberg. Domaine public."
 plus_loin:
   - titre: L'Origine des espèces
     type: livre

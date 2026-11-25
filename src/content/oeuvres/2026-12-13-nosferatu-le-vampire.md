@@ -12,11 +12,11 @@ ressource:
   url: https://commons.wikimedia.org/wiki/File:Nosferatu_le_vampire-Film_Murnau_1922.webm
   note: "Version muette avec intertitres en français, d'environ une heure. Domaine public."
 plus_loin:
-  - titre: Dracula
-    type: livre
+  - titre: Le comte Dracula
+    type: personnage
     createur: Bram Stoker, 1897
-    pourquoi: "Un pont vers la littérature. Le roman épistolaire que Murnau a adapté sans autorisation, en changeant les noms des personnages."
-    url: https://fr.wikipedia.org/wiki/Dracula_(roman)
+    pourquoi: "Un pont vers la littérature. Le vampire du roman épistolaire de Bram Stoker, que Murnau a adapté sans autorisation en changeant les noms des personnages."
+    url: https://fr.wikipedia.org/wiki/Dracula_(personnage)
   - titre: Le Cabinet du docteur Caligari
     type: film
     createur: Robert Wiene, 1920

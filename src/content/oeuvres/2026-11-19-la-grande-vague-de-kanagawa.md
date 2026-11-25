@@ -8,9 +8,9 @@ epoque: vers 1830-1832
 accroche: "Une estampe japonaise de la taille d'une feuille de cahier, imprimée à des milliers d'exemplaires, devenue l'une des images les plus célèbres au monde."
 question: "Où est le sujet de cette image : la vague, les bateaux, ou la montagne minuscule au fond ?"
 ressource:
-  libelle: Voir l'estampe au Metropolitan Museum of Art
-  url: https://www.metmuseum.org/art/collection/search/45434
-  note: "Le musée de New York conserve l'un des nombreux tirages ; sa reproduction est en libre accès."
+  libelle: Voir l'estampe en haute définition sur Wikimedia Commons
+  url: https://commons.wikimedia.org/wiki/File:Tsunami_by_hokusai_19th_century.jpg
+  note: "Reproduction dans le domaine public. Des tirages originaux sont conservés dans de nombreux musées, dont le Metropolitan Museum of Art de New York."
 plus_loin:
   - titre: La Mer
     type: musique
@@ -28,7 +28,7 @@ image:
   licence: domaine public
 sources:
   - https://fr.wikipedia.org/wiki/La_Grande_Vague_de_Kanagawa
-  - https://www.metmuseum.org/art/collection/search/45434
+  - https://commons.wikimedia.org/wiki/File:Tsunami_by_hokusai_19th_century.jpg
 ---
 
 ## En quoi ça consiste
@@ -51,4 +51,4 @@ Debussy fait reproduire la vague sur la couverture de sa partition de *La Mer* e
 
 ## Par où commencer
 
-Sur la page du musée, agrandissez l'image et suivez ce parcours : d'abord la crête de la vague, avec ses griffes d'écume ; puis les visages des rameurs, presque tous baissés ; enfin le Fuji, que l'on ne voit qu'en dernier. Cherchez ensuite la signature d'Hokusai, en haut à gauche, à côté du titre inscrit dans un cartouche. Puis comparez avec une autre vue de la série, sur Wikipédia, où la montagne occupe toute la place.
+Ouvrez l'image en pleine taille et suivez ce parcours : d'abord la crête de la vague, avec ses griffes d'écume ; puis les visages des rameurs, presque tous baissés ; enfin le Fuji, que l'on ne voit qu'en dernier. Cherchez ensuite la signature d'Hokusai, en haut à gauche, à côté du titre inscrit dans un cartouche. Puis comparez avec une autre vue de la série, sur Wikipédia, où la montagne occupe toute la place.

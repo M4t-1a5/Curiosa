@@ -116,6 +116,8 @@ npm run verify
 
 Vérifie tout le catalogue : structure de chaque fiche, domaines autorisés, et une vraie requête HTTP par lien (statut 200 exigé, redirections suivies). On peut aussi vérifier un fichier (`npm run verify -- drafts/ma-fiche.md`) ou seulement la structure, sans réseau (`npm run verify -- --sans-reseau`).
 
+Certains sites refusent les vérificateurs automatiques, même quand la page fonctionne dans un navigateur : l'Art Institute of Chicago et Gallica (403), le Metropolitan Museum (429), Project Gutenberg depuis les serveurs de GitHub (503). Leurs liens ne peuvent donc pas être publiés ; utilisez à la place Wikimedia Commons, Wikisource ou Internet Archive, qui hébergent souvent les mêmes œuvres.
+
 Sur GitHub, cette vérification tourne **avant chaque mise en ligne et chaque nuit**. Un lien qui ne répond plus est masqué ; une fiche dont la ressource principale ne répond plus est retirée jusqu'à sa correction. GitHub vous prévient alors par e-mail, et le résumé du travail liste les liens à corriger.
 
 ## Mise en ligne

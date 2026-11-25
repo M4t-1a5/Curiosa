@@ -91,7 +91,7 @@ for (const { fiche, structure } of fiches) {
   }
   for (const { url, role } of liensEnEchec) {
     const r = resultats[url];
-    const raison = [r?.statut, r?.erreur].filter(Boolean).join(' ');
+    const raison = [r?.statut, r?.erreur, r?.url_finale && r.url_finale !== url ? `(→ ${r.url_finale})` : ''].filter(Boolean).join(' ');
     console.log(`    ✘ ${role} : ${raison} ${url}`);
     lignesRapport.push(`| ${fiche.id} | ${role} | ${raison} | ${url} |`);
     // Annotation visible directement sur la page du travail dans GitHub Actions.

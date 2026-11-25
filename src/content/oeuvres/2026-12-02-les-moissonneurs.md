@@ -8,9 +8,9 @@ epoque: "1565"
 accroche: "Un après-midi d'été en Flandre : des paysans moissonnent, mangent et dorment sous un arbre, devant un paysage qui s'étend à perte de vue."
 question: "Qu'est-ce qui, dans ma journée ordinaire, mériterait d'être regardé comme un tableau ?"
 ressource:
-  libelle: Voir le tableau au Metropolitan Museum of Art
-  url: https://www.metmuseum.org/art/collection/search/435809
-  note: "Le musée de New York, qui conserve le tableau depuis 1919, en propose une reproduction en libre accès."
+  libelle: Voir le tableau en très haute définition sur Wikimedia Commons
+  url: https://commons.wikimedia.org/wiki/File:Pieter_Bruegel_the_Elder-_The_Harvesters_-_Google_Art_Project.jpg
+  note: "Numérisation du Google Art Project, dans le domaine public. L'original est conservé au Metropolitan Museum of Art de New York."
 plus_loin:
   - titre: Chasseurs dans la neige
     type: tableau
@@ -28,8 +28,8 @@ image:
   credit: Pieter Bruegel l'Ancien, Metropolitan Museum of Art, via Wikimedia Commons
   licence: domaine public
 sources:
-  - https://fr.wikipedia.org/wiki/Les_Moissonneurs_(Brueghel)
-  - https://www.metmuseum.org/art/collection/search/435809
+  - https://fr.wikipedia.org/wiki/La_Moisson_(Pieter_Brueghel_l'Ancien)
+  - https://commons.wikimedia.org/wiki/Category:The_Harvesters_by_Pieter_Bruegel_(I)
 ---
 
 ## En quoi ça consiste
@@ -52,4 +52,4 @@ Son regard a ouvert la voie aux scènes de genre et aux paysages de la peinture 
 
 ## Par où commencer
 
-Agrandissez l'image et commencez par le groupe du pique-nique : comptez les cuillères, regardez celui qui coupe le pain, la cruche, l'homme qui dort les jambes écartées. Suivez ensuite le chemin creusé dans le blé jusqu'aux femmes qui portent des gerbes. Terminez par le fond : à mi-distance, de minuscules villageois jouent ou se baignent, pendant que d'autres continuent de travailler.
+Ouvrez l'image en pleine taille, zoomez, et commencez par le groupe du pique-nique : comptez les cuillères, regardez celui qui coupe le pain, la cruche, l'homme qui dort les jambes écartées. Suivez ensuite le chemin creusé dans le blé jusqu'aux femmes qui portent des gerbes. Terminez par le fond : à mi-distance, de minuscules villageois jouent ou se baignent, pendant que d'autres continuent de travailler.

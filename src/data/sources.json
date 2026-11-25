@@ -7,8 +7,7 @@
     "archive.org": "Internet Archive",
     "artic.edu": "Art Institute of Chicago",
     "metmuseum.org": "Metropolitan Museum of Art",
-    "commons.wikimedia.org": "Wikimedia Commons",
-    "upload.wikimedia.org": "Wikimedia Commons",
+    "wikimedia.org": "Wikimedia Commons",
     "europeana.eu": "Europeana",
     "arxiv.org": "arXiv",
     "hal.science": "HAL",
@@ -25,5 +24,6 @@
     "ina.fr": "INA",
     "philharmoniedeparis.fr": "Philharmonie de Paris",
     "arte.tv": "Arte"
-  }
+  },
+  "_attention": "Certains sites refusent les vérificateurs automatiques (Art Institute of Chicago et Gallica : 403 ; Metropolitan Museum : 429 ; Project Gutenberg : 503 depuis GitHub). Leurs liens ne passent donc pas la vérification : préférez Wikimedia Commons, Wikisource ou Internet Archive."
 }
