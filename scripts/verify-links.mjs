@@ -85,12 +85,17 @@ for (const { fiche, structure } of fiches) {
   const liensEnEchec = sansReseau ? [] : liensDe(fiche).filter((l) => domaineAutorise(l.url) && !resultats[l.url]?.ok);
   const ok = structure.length === 0 && liensEnEchec.length === 0;
   console.log(`${ok ? '✔' : '✘'} ${fiche.id}`);
-  for (const p of structure) console.log(`    ✘ ${p}`);
+  for (const p of structure) {
+    console.log(`    ✘ ${p}`);
+    if (process.env.GITHUB_ACTIONS) console.log(`::error file=${fiche.fichier},title=Fiche à corriger::${p}`);
+  }
   for (const { url, role } of liensEnEchec) {
     const r = resultats[url];
     const raison = [r?.statut, r?.erreur].filter(Boolean).join(' ');
     console.log(`    ✘ ${role} : ${raison} ${url}`);
     lignesRapport.push(`| ${fiche.id} | ${role} | ${raison} | ${url} |`);
+    // Annotation visible directement sur la page du travail dans GitHub Actions.
+    if (process.env.GITHUB_ACTIONS) console.log(`::warning file=${fiche.fichier},title=Lien à corriger (${role})::${raison} ${url}`);
   }
   for (const p of structure) lignesRapport.push(`| ${fiche.id} | structure | ${p.replace(/\|/g, '/')} | |`);
   if (!ok) problemes++;
