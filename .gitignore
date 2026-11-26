@@ -3,6 +3,4 @@ dist/
 .astro/
 cache/
 .env
-src/assets/oeuvres/*
-!src/assets/oeuvres/.gitkeep
 .DS_Store

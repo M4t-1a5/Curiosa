@@ -67,7 +67,7 @@ npm run proposer-images                      # toutes les fiches sans image
 npm run proposer-images -- drafts/x.md       # une seule fiche
 ```
 
-Le script part des pages Wikipédia citées dans `sources`, lit l'image de l'article et celle de Wikidata, et affiche leur taille et leur licence. Regardez l'image avant de l'ajouter : le texte alternatif décrit ce qu'on voit, rien de plus. Préférez une image d'au moins 1500 px de large : elle est téléchargée en 3840 px au plus.
+Le script part des pages Wikipédia citées dans `sources`, lit l'image de l'article et celle de Wikidata, et affiche leur taille et leur licence. Regardez l'image avant de l'ajouter : le texte alternatif décrit ce qu'on voit, rien de plus. Préférez une image d'au moins 1500 px de large. Ensuite, `npm run images` la télécharge dans `src/assets/oeuvres/` (3600 px au plus) : **commitez ce fichier avec la fiche**, avec `couleurs.json` et `origines.json`. Wikimédia refuse souvent les téléchargements faits depuis les serveurs de GitHub, le site publié utilise donc les images du dépôt.
 
 ## Format d'une fiche
 

@@ -22,7 +22,7 @@ Site personnel, en français, qui présente une œuvre par jour (livre, tableau,
 - YAML : mettre entre guillemets toute valeur contenant « : » suivi d'une espace.
 - Corps d'une fiche : exactement les quatre sections `## En quoi ça consiste`, `## Ce que ça apporte`, `## Ce que ça a changé`, `## Par où commencer` (350 à 500 mots en tout, environ trois minutes de lecture).
 - `plus_loin` : 1 à 3 œuvres, au moins une dans un autre domaine.
-- Images : le plus possible, pour tous les types (tableau, portrait, page de titre, image de film…), mais dans le domaine public ou en CC0 seulement. `npm run proposer-images` les cherche sur Wikipédia, Wikidata et Commons ; on regarde chaque image avant d'écrire son texte alternatif. Téléchargées en 3840 px par `npm run images` dans `src/assets/oeuvres/` (non versionné), avec leur couleur d'ambiance (`couleurs.json`).
+- Images : le plus possible, pour tous les types (tableau, portrait, page de titre, image de film…), mais dans le domaine public ou en CC0 seulement. `npm run proposer-images` les cherche sur Wikipédia, Wikidata et Commons ; on regarde chaque image avant d'écrire son texte alternatif. Téléchargées par `npm run images` dans `src/assets/oeuvres/` (JPEG, 3600 px au plus), avec leur couleur d'ambiance (`couleurs.json`) et leur adresse d'origine (`origines.json`). **Ces fichiers sont versionnés** : lancer `npm run images` en local et les commiter avec la fiche, car Wikimédia refuse les téléchargements depuis les serveurs de GitHub.
 - Code simple et commenté en français : l'utilisateur veut pouvoir le lire et le modifier.
 
 ## Design

@@ -81,8 +81,9 @@ const presentes = () =>
   );
 const existantes = presentes();
 
-// Adresse d'origine de chaque image déjà téléchargée. Si la fiche change d'image (ou si
-// l'image date d'avant ce suivi), l'ancien fichier est remplacé, y compris dans le cache de la CI.
+// Adresse d'origine de chaque image déjà téléchargée. Si la fiche change d'image,
+// l'ancien fichier est remplacé. Une image présente dont l'origine n'est pas notée
+// (par exemple restaurée par un ancien cache de la CI) est conservée telle quelle.
 const FICHIER_ORIGINES = path.join(DOSSIER_IMAGES, 'origines.json');
 let origines = {};
 try {
@@ -99,8 +100,8 @@ for (const fichier of listerFiches(DOSSIER_FICHES)) {
   const url = donnees.image?.url;
   if (!url) continue;
   if (existantes.has(id)) {
-    if (origines[id] === url) continue;
-    fs.rmSync(path.join(DOSSIER_IMAGES, existantes.get(id))); // image périmée
+    if (origines[id] === url || origines[id] === undefined) continue;
+    fs.rmSync(path.join(DOSSIER_IMAGES, existantes.get(id))); // la fiche a changé d'image
     delete couleurs[id];
   }
   if (!domaineAutorise(url)) {
